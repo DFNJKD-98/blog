@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python包及其定义和引用详解 | DFNJKD98文档记录</title><meta name="author" content="DFNJKD98"><meta name="copyright" content="DFNJKD98"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python包及其定义和引用详解什么是包 为了更好地管理多个模块源文件，Python 提供了包的概念。那么问题来了，什么是包呢？  从物理上看，包就是一个文件夹，在该文件夹下包含了一个 __init__.py 文件，该文件夹可用于包含多个模块源文件；从逻辑上看，包的本质依然是模块。  根据上面介绍可以得到一个推论，包的作用是包含多个模块，但包的本质依然是模块，因此包也可用于包含包。典型地，当我们为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python包及其定义和引用详解">
+<meta property="og:url" content="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="DFNJKD98文档记录">
+<meta property="og:description" content="Python包及其定义和引用详解什么是包 为了更好地管理多个模块源文件，Python 提供了包的概念。那么问题来了，什么是包呢？  从物理上看，包就是一个文件夹，在该文件夹下包含了一个 __init__.py 文件，该文件夹可用于包含多个模块源文件；从逻辑上看，包的本质依然是模块。  根据上面介绍可以得到一个推论，包的作用是包含多个模块，但包的本质依然是模块，因此包也可用于包含包。典型地，当我们为">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-07T03:40:57.590Z">
+<meta property="article:modified_time" content="2022-07-07T03:51:51.922Z">
+<meta property="article:author" content="DFNJKD98">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/hexo_blog/img/favicon.png"><link rel="canonical" href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo_blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo_blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python包及其定义和引用详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-07 11:51:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo_blog/">DFNJKD98文档记录</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python包及其定义和引用详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-07T03:40:57.590Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-07T03:51:51.922Z" title="更新于 2022-07-07 11:51:51">2022-07-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python包及其定义和引用详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Python包及其定义和引用详解"><a href="#Python包及其定义和引用详解" class="headerlink" title="Python包及其定义和引用详解"></a>Python包及其定义和引用详解</h3><h4 id="什么是包"><a href="#什么是包" class="headerlink" title="什么是包"></a>什么是包</h4><ul>
+<li><p>为了更好地管理多个模块源文件，Python 提供了包的概念。那么问题来了，什么是包呢？</p>
+</li>
+<li><p>从物理上看，包就是一个文件夹，在该文件夹下包含了一个 <code>__init__.py</code> 文件，该文件夹可用于包含多个模块源文件；从逻辑上看，包的本质依然是模块。</p>
+</li>
+<li><p>根据上面介绍可以得到一个推论，包的作用是包含多个模块，但包的本质依然是模块，因此包也可用于包含包。典型地，当我们为 Python 安装了 numpy 模块之后，可以在 Python 安装目录的 Lib\site-packages 目录下找到一个 numpy 文件夹，它就是前面安装的 numpy 模块（其实是一个包）。该文件夹的内容如图所示：</p>
+<p><img src="/hexo_blog/./Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/01.gif" alt="numpy文件内容"></p>
+</li>
+<li><p>从图可以看出，在 numpy 包（也是模块）下既包含了 matlib.py 等模块源文件，也包含了 core 等子包（也是模块）。这正对应了我们刚刚介绍的：包的本质依然是模块，因此包又可以包含包。</p>
+</li>
+</ul>
+<h4 id="定义包"><a href="#定义包" class="headerlink" title="定义包"></a>定义包</h4><ul>
+<li><p>掌握了包是什么之后，接下来学习如何定义包。定义包更简单，主要有两步：</p>
+<ol>
+<li>创建一个文件夹，该文件夹的名字就是该包的包名。</li>
+<li>在该文件夹内添加一个 <code>__init__.py</code> 文件即可。</li>
+</ol>
+</li>
+<li><p>下面定义一个非常简单的包。先新建一个 first_package 文件夹，然后在该文件夹中添加一个 <code>__init__.py</code> 文件，该文件内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">这是学习包的第一个示例</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;this is first_package&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的 Python 源文件非常简单，该文件开始部分的字符串是该包的说明文档，接下来是一条简单的输出语句。</p>
+<p>下面通过如下程序来使用该包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入first_package包（模块）</span></span><br><span class="line"><span class="keyword">import</span> first_package</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;==========&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(first_package.__doc__)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(first_package))</span><br><span class="line"><span class="built_in">print</span>(first_package)</span><br></pre></td></tr></table></figure>
+
+<p>再次强调，包的本质就是模块，因此导入包和导入模块的语法完全相同。因此，上面程序中第 2 行代码导入了 first_package 包。程序最后三行代码输出了包的说明文档、包的类型和包本身。</p>
+<p>运行该程序，可以看到如下输出结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this <span class="keyword">is</span> first package</span><br><span class="line">==========</span><br><span class="line">这是学习包的第一个示例</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;module&#x27;</span>&gt;</span><br><span class="line">&lt;module <span class="string">&#x27;first_package&#x27;</span> <span class="keyword">from</span> <span class="string">&#x27;G:\\publish\\codes\\09\\9.3\\first_package\\__init__.py&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从上面的输出结果可以看出，在导入 first_package 包时，程序执行了该包所对应的文件夹下的 <code>__init__.py</code>；从倒数第二行输出可以看到，包的本质就是模块；从最后一行输出可以看到，使用 import<br>first_package 导入包的本质就是加载井执行该包下的 <code>__init__.py</code> 文件，然后将整个文件内容赋值给与包同名的变量，该变量的类型是 module。</p>
+<p>与模块类似的是，包被导入之后，会在包目录下生成一个 <strong>pycache</strong> 文件夹，并在该文件夹内为包生成一个 <code>__init__.cpython-36.pyc</code> 文件。</p>
+<p>由于导入包就相当于导入该包下的 <code>__init__.py</code> 文件，因此我们完全可以在 <code>__init__.py</code> 文件中定义变量、函数、类等程序单元，但实际上往往并不会这么做。想一想原因是什么？包的主要作用是包含多个模块，因此 <code>__init__.py</code> 文件的主要作用就是导入该包内的其他模块。</p>
+</li>
+<li><p>下面再定义一个更加复杂的包，在该包下将会包含多个模块，并使用 <code>__init__.py</code> 文件来加载这些模块。</p>
+<p>新建一个 fk_package 包，并在该包下包含三个模块文件：</p>
+<ul>
+<li>print_shape.py</li>
+<li>billing.py</li>
+<li>arithmetic_chart.py</li>
+</ul>
+<p><strong>fk_package</strong> 的文件结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fk_package</span><br><span class="line">┠──arithmetic_chart.py</span><br><span class="line">┠──billing.py</span><br><span class="line">┠──print_shape.py</span><br><span class="line">┗━━__init__.py</span><br></pre></td></tr></table></figure>
+
+<p>其中，<strong>arithmetic_chart.py</strong> 模块文件的内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_multiple_chart</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&#x27;打印乘法口角表的函数&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%d * %d = %2d&#x27;</span> % ((j + <span class="number">1</span>) , (i + <span class="number">1</span>) , (j + <span class="number">1</span>)* (i + <span class="number">1</span>)), end=<span class="string">&#x27;  &#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面模块文件中定义了一个打印乘法口诀表的函数。</p>
+<p><strong>billing.py</strong> 模块文件的内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Item</span>:</span><br><span class="line">    <span class="string">&#x27;定义代表商品的Item类&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, price</span>):</span><br><span class="line">        self.price = price</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Item[price=%g]&#x27;</span> % self.price</span><br></pre></td></tr></table></figure>
+
+<p><strong>print_shape.py</strong> 模块文件的内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_blank_triangle</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">&#x27;使用星号打印一个空心的三角形&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&#x27;n必须大于0&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span> * (n - i - <span class="number">1</span>), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> i != n - <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span> * (<span class="number">2</span> * i - <span class="number">1</span>), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span> * (<span class="number">2</span> * i - <span class="number">1</span>), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> i != <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>fk_package 包下的 <code>__init__.py</code> 文件暂时为空，不用编写任何内容。</p>
+<p>上面三个模块文件都位于 fk_package 包下，总共提供了两个函数和一个类。这意味着 fk_package 包（也是模块）总共包含 arithmetic_chart、 billing 和 print_shape 三个模块。在这种情况下，这三个模块就相当于 fk_package 包的成员。</p>
+</li>
+</ul>
+<h4 id="导入包内成员"><a href="#导入包内成员" class="headerlink" title="导入包内成员"></a>导入包内成员</h4><ul>
+<li><p>如果需要使用 arithmetic_chart、 billing 和 print_shape 这三个模块，则可以在程序中执行如下导入代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入fk_package包，实际上就是导入包下__init__.py文件</span></span><br><span class="line"><span class="keyword">import</span> fk_package</span><br><span class="line"><span class="comment"># 导入fk_package包下的print_shape模块，</span></span><br><span class="line"><span class="comment"># 实际上就是导入fk_package目录下的print_shape.py</span></span><br><span class="line"><span class="keyword">import</span> fk_package.print_shape</span><br><span class="line"><span class="comment"># 实际上就是导入fk_package包（模块）导入print_shape模块</span></span><br><span class="line"><span class="keyword">from</span> fk_package <span class="keyword">import</span> billing</span><br><span class="line"><span class="comment"># 导入fk_package包下的arithmetic_chart模块，</span></span><br><span class="line"><span class="comment"># 实际上就是导入fk_package目录下的arithmetic_chart.py</span></span><br><span class="line"><span class="keyword">import</span> fk_package.arithmetic_chart</span><br><span class="line">fk_package.print_shape.print_blank_triangle(<span class="number">5</span>)</span><br><span class="line">im = billing.Item(<span class="number">4.5</span>)</span><br><span class="line"><span class="built_in">print</span>(im)</span><br><span class="line">fk_package.arithmetic_chart.print_multiple_chart(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面程序中第 2 行代码是“import fk_package”，由于导入包的本质只是加载并执行包里的 <code>__init__.py</code> 文件，因此执行这条导入语句之后，程序只能使用 fk_package 目录下的 <strong>init</strong>.py 文件中定义的程序单元。对于本例而言，由于 fk_package_<em>init</em>_.py 文件内容为空，因此这条导入语句没有任何作用。</p>
+<p>第 5 行导入语句的本质就是加载并执行 fk_package 包下的 print_shape.py 文件，并将其赋值给 fk_package.print_shape 变量。因此执行这条导入语句之后，程序可访问 fk_package\print_shape.py 文件所定义的程序单元，但需要添加 fk_package.print_shape 前缀。</p>
+<p>第 8 行导入语句的本质是导入 fk_package 包（也是模块）下的 billing 成员（其实是模块）。因此执行这条导入语句之后，程序可使用 fk_package\billing.py 文件定义的程序单元，而且只需要添加 billing 前缀。</p>
+<p>第 11 行代码与第 5 行代码的导入效果相同。</p>
+<p>该程序后面分别测试了 fk_package 包下的 print_shape、billing、arithmetic_chart 这三个模块的功能。运行上面程序，可以看到三个模块的功能完全可以正常显示。</p>
+<p>上面程序虽然可以正常运行，但此时存在两个问题：</p>
+<ol>
+<li>为了调用包内模块中的程序单元，需要使用很长的前缀，这实在是太麻烦了。</li>
+<li>包内 <code>__init__.py</code> 文件的功能完全被忽略了。</li>
+</ol>
+</li>
+<li><p>想一想就知道，包内的 <code>__init__.py</code> 文件并不是用来定义程序单元的，而是用于导入该包内模块的成员，这样即可把模块中的成员导入变成包内成员，以后使用起来会更加方便。</p>
+<p>将 fk_package 包下的 <code>__init__.py</code> 文件编辑成如下形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从当前包导入print_shape模块</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> print_shape</span><br><span class="line"><span class="comment"># 从.print_shape导入所有程序单元到fk_package中</span></span><br><span class="line"><span class="keyword">from</span> .print_shape <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># 从当前包导入billing模块</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> billing</span><br><span class="line"><span class="comment"># 从.billing导入所有程序单元到fk_package中</span></span><br><span class="line"><span class="keyword">from</span> .billing <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># 从当前包导入arithmetic_chart模块</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> arithmetic_chart</span><br><span class="line"><span class="comment"># 从.arithmetic_chart导入所有程序单元到fk_package中</span></span><br><span class="line"><span class="keyword">from</span> .arithmetic_chart <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<p>该程序的代码基本上差不多，都是通过如下两行代码来处理导入的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从当前包导入print_shape模块</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> print_shape</span><br><span class="line"><span class="comment"># 从.print_shape导入所有程序单元到fk_package中</span></span><br><span class="line"><span class="keyword">from</span> .print_shape <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<p>上面第一行 from…import 用于导入当前包（模块）中的 print_shape（模块），这样即可在 fk_package 中使用 print_shape 模块。但这种导入方式是将 print_shape 模块导入了 fk_package 包中，因此当其他程序使用 print_shape 内的成员时，依然需要通过 <code>fk_package.print_shape</code> 前缀进行调用。</p>
+<p>第二行导入语句用于将 print_shape 模块内的所有程序单元导入 fk_package 模块中，这样以后只要使用 <code>fk_package.</code>前缀就可以使用三个模块内的程序单元。例如如下程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入fk_package包，实际上就是导入包下__init__.py文件</span></span><br><span class="line"><span class="keyword">import</span> fk_package</span><br><span class="line"><span class="comment"># 直接使用fk_package前缀即可调用它所包含的模块内的程序单元。</span></span><br><span class="line">fk_package.print_blank_triangle(<span class="number">5</span>)</span><br><span class="line">im = fk_package.Item(<span class="number">4.5</span>)</span><br><span class="line"><span class="built_in">print</span>(im)</span><br><span class="line">fk_package.print_multiple_chart(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面第 2 行代码是导入 fk_package 包，导入该包的本质就是导入该包下的 <code>__init__.py</code> 文件。而 <code>__init__.py</code> 文件又执行了导入，它们会把三个模块内的程序单元导入 fk_package 包中，因此程序的下面代码可使用 <code>fk_package.</code>前缀来访问三个模块内的程序单元。</p>
+<p>运行上面程序，同样可以看到正常的运行结果。</p>
+</li>
+</ul>
+<h4 id="循环导包的解决方法"><a href="#循环导包的解决方法" class="headerlink" title="循环导包的解决方法"></a>循环导包的解决方法</h4><ul>
+<li>延迟导入(lazy import)，即把import语句写在方法或函数里面，将它的作用域限制在局部。这种方法的缺点就是会有性能问题。</li>
+<li>将 <code>from xxx import yyy</code> 改成 <code>import xxx; xxx.yyy</code> 来访问的形式</li>
+<li>组织代码，出现循环import的问题往往意味着代码的布局有问题。可以合并或者分离竞争资源。合并的话就是都写到一个文件里面去。分离的话就是把需要import的资源提取到一个第三方文件去。总之就是 将循环变成单向。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DFNJKD98</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/">https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dfnjkd98.gitee.io/hexo_blog" target="_blank">DFNJKD98文档记录</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo_blog/2022/07/07/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python数据分析基础学习</div></div></a></div><div class="next-post pull-right"><a href="/hexo_blog/2022/07/07/OpenEuler/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">OpenEuler学习记录</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/hexo_blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DFNJKD98</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">初次使用Hexo部署博客,更多内容还在迁移中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Python包及其定义和引用详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8C%85"><span class="toc-number">1.1.</span> <span class="toc-text">什么是包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8C%85"><span class="toc-number">1.2.</span> <span class="toc-text">定义包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E5%8C%85%E5%86%85%E6%88%90%E5%91%98"><span class="toc-number">1.3.</span> <span class="toc-text">导入包内成员</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%8C%85%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">循环导包的解决方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="小知识点"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点">小知识点</a><time datetime="2022-07-07T03:40:57.801Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="书签目录说明"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明">书签目录说明</a><time datetime="2022-07-07T03:40:57.785Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2022-07-07T03:40:57.775Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="好物推荐"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐">好物推荐</a><time datetime="2022-07-07T03:40:57.758Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="Windows配置"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置">Windows配置</a><time datetime="2022-07-07T03:40:57.743Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By DFNJKD98</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo_blog/js/utils.js"></script><script src="/hexo_blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

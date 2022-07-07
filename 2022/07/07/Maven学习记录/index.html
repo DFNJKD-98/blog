@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Maven学习记录 | DFNJKD98文档记录</title><meta name="author" content="DFNJKD98"><meta name="copyright" content="DFNJKD98"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Maven 学习记录  一、了解Maven1.1 什么是Maven Maven 翻译为”专家”、”内行” Apache 下的一个纯 Java 开发的开源项目 Maven 是一个项目管理工具，对 Java 项目进行构建、依赖管理 Maven 也可被用于构建和管理各种项目，例如 C#，Ruby，Scala 和其他语言编写的项目 Maven 使用约定优于配置的原则  1.2 Maven的功能Maven">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven学习记录">
+<meta property="og:url" content="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="DFNJKD98文档记录">
+<meta property="og:description" content="Maven 学习记录  一、了解Maven1.1 什么是Maven Maven 翻译为”专家”、”内行” Apache 下的一个纯 Java 开发的开源项目 Maven 是一个项目管理工具，对 Java 项目进行构建、依赖管理 Maven 也可被用于构建和管理各种项目，例如 C#，Ruby，Scala 和其他语言编写的项目 Maven 使用约定优于配置的原则  1.2 Maven的功能Maven">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-07T03:40:57.487Z">
+<meta property="article:modified_time" content="2022-07-07T03:49:20.270Z">
+<meta property="article:author" content="DFNJKD98">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/hexo_blog/img/favicon.png"><link rel="canonical" href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo_blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo_blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Maven学习记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-07 11:49:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo_blog/">DFNJKD98文档记录</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Maven学习记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-07T03:40:57.487Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-07T03:49:20.270Z" title="更新于 2022-07-07 11:49:20">2022-07-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Maven学习记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 align="center" id="index">Maven 学习记录</h1>
+
+<h2 id="一、了解Maven"><a href="#一、了解Maven" class="headerlink" title="一、了解Maven"></a>一、了解Maven</h2><h3 id="1-1-什么是Maven"><a href="#1-1-什么是Maven" class="headerlink" title="1.1 什么是Maven"></a>1.1 什么是Maven</h3><ul>
+<li>Maven 翻译为”专家”、”内行”</li>
+<li>Apache 下的一个纯 Java 开发的开源项目</li>
+<li>Maven 是一个项目管理工具，对 Java 项目进行构建、依赖管理</li>
+<li>Maven 也可被用于构建和管理各种项目，例如 C#，Ruby，Scala 和其他语言编写的项目</li>
+<li>Maven 使用约定优于配置的原则</li>
+</ul>
+<h3 id="1-2-Maven的功能"><a href="#1-2-Maven的功能" class="headerlink" title="1.2 Maven的功能"></a>1.2 Maven的功能</h3><p>Maven 能够帮助开发者完成以下工作：</p>
+<ul>
+<li>构建</li>
+<li>文档生成</li>
+<li>报告</li>
+<li>依赖</li>
+<li>SCMs</li>
+<li>发布</li>
+<li>分发</li>
+<li>邮件列表</li>
+</ul>
+<h3 id="1-3-约定目录结构"><a href="#1-3-约定目录结构" class="headerlink" title="1.3 约定目录结构"></a>1.3 约定目录结构</h3><table>
+<thead>
+<tr>
+<th align="left">目录</th>
+<th align="left">目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">${basedir}</td>
+<td align="left">存放pom.xml和所有的子目录</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;src&#x2F;main&#x2F;java</td>
+<td align="left">项目的java源代码</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;src&#x2F;main&#x2F;resources</td>
+<td align="left">项目的资源，比如说property文件，springmvc.xml</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;src&#x2F;test&#x2F;java</td>
+<td align="left">项目的测试类，比如说Junit代码</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;src&#x2F;test&#x2F;resources</td>
+<td align="left">测试用的资源</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;src&#x2F;main&#x2F;webapp&#x2F;WEB-INF</td>
+<td align="left">web应用文件目录，web项目的信息，比如存放web.xml、本地图片、jsp视图页面</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;target</td>
+<td align="left">打包输出目录</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;target&#x2F;classes</td>
+<td align="left">编译输出目录</td>
+</tr>
+<tr>
+<td align="left">${basedir}&#x2F;target&#x2F;test-classes</td>
+<td align="left">测试编译输出目录</td>
+</tr>
+<tr>
+<td align="left">Test.java</td>
+<td align="left">Maven只会自动运行符合该命名规则的测试类</td>
+</tr>
+<tr>
+<td align="left">~&#x2F;.m2&#x2F;repository</td>
+<td align="left">Maven默认的本地仓库目录位置</td>
+</tr>
+</tbody></table>
+<h2 id="二、安装与配置"><a href="#二、安装与配置" class="headerlink" title="二、安装与配置"></a>二、安装与配置</h2><h3 id="2-1-安装JDK"><a href="#2-1-安装JDK" class="headerlink" title="2.1 安装JDK"></a>2.1 安装JDK</h3><ul>
+<li><p>Maven 3.3 要求 JDK 1.7 或以上 </p>
+</li>
+<li><p>Maven 3.2 要求 JDK 1.6 或以上 </p>
+</li>
+<li><p>Maven 3.0&#x2F;3.1 要求 JDK 1.5 或以上</p>
+</li>
+<li><p>查看JDK版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-2-下载"><a href="#2-2-下载" class="headerlink" title="2.2 下载"></a>2.2 下载</h3><ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></li>
+<li>Windows下载zip压缩包(Linux下载tar.gz压缩包)后，解压到一个目录下即可</li>
+</ul>
+<h3 id="2-3-配置"><a href="#2-3-配置" class="headerlink" title="2.3 配置"></a>2.3 配置</h3><ul>
+<li><p>新建系统变量<code>MAVEN_HOME</code> - <code> D:\apache-maven-3.8.2</code></p>
+</li>
+<li><p>编辑系统变量Path，添加变量值：<code>%MAVEN_HOME%\bin</code></p>
+</li>
+<li><p>查看版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置本地仓库和镜像 - <code>D:\apache-maven-3.8.2\conf\settings.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>E:\LocalRepository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="三、Spring、SpringMVC、SpringBoot"><a href="#三、Spring、SpringMVC、SpringBoot" class="headerlink" title="三、Spring、SpringMVC、SpringBoot"></a>三、Spring、SpringMVC、SpringBoot</h2><blockquote>
+<p>Spring 最初利用“工厂模式”（DI）和“代理模式”（AOP）解耦应用组件。</p>
+<p>大家觉得挺好用，于是按照这种模式搞了一个 MVC框架（一些用Spring 解耦的组件），用开发 web 应用（ SpringMVC ）。</p>
+<p>然后又发现每次开发都写很多样板代码，为了简化工作流程，于是开发出了一些“懒人整合包”（starter），这套就是 Spring Boot。</p>
+<p>用最简练的语言概括就是：</p>
+<p>Spring 是一个“引擎”；</p>
+<p>Spring MVC 是基于Spring的一个 MVC 框架 ；</p>
+<p>Spring Boot 是基于Spring4的条件注册的一套快速开发整合包。</p>
+</blockquote>
+<h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><ul>
+<li>一个轻量级控制反转(IOC)和面向切面(AOP)的容器框架</li>
+</ul>
+<h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><ul>
+<li><strong>Spring MVC是Spring的一部分</strong>，Spring 出来以后，大家觉得很好用，于是按照这种模式设计了一个MVC框架（一些用Spring解耦的组件），主要用于开发WEB应用和网络接口，<strong>它是Spring的一个模块</strong>，通过DispatcherServlet, ModelAndView 和View Resolver，让应用开发变得很容易。</li>
+</ul>
+<h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><ul>
+<li>SpringBoot是一套整合了框架的框架</li>
+<li>它的初衷：解决Spring框架配置文件的繁琐、搭建服务的复杂性</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DFNJKD98</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dfnjkd98.gitee.io/hexo_blog" target="_blank">DFNJKD98文档记录</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo_blog/2022/07/07/MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MySQL存储引擎</div></div></a></div><div class="next-post pull-right"><a href="/hexo_blog/2022/07/07/Linux%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux实验记录</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/hexo_blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DFNJKD98</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">初次使用Hexo部署博客,更多内容还在迁移中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#index"><span class="toc-number">1.</span> <span class="toc-text">Maven 学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BA%86%E8%A7%A3Maven"><span class="toc-number">1.1.</span> <span class="toc-text">一、了解Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFMaven"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 什么是Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Maven%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 Maven的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E7%BA%A6%E5%AE%9A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 约定目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85JDK"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Spring%E3%80%81SpringMVC%E3%80%81SpringBoot"><span class="toc-number">1.3.</span> <span class="toc-text">三、Spring、SpringMVC、SpringBoot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring"><span class="toc-number">1.3.1.</span> <span class="toc-text">Spring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC"><span class="toc-number">1.3.2.</span> <span class="toc-text">SpringMVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot"><span class="toc-number">1.3.3.</span> <span class="toc-text">SpringBoot</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="小知识点"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点">小知识点</a><time datetime="2022-07-07T03:40:57.801Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="书签目录说明"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明">书签目录说明</a><time datetime="2022-07-07T03:40:57.785Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2022-07-07T03:40:57.775Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="好物推荐"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐">好物推荐</a><time datetime="2022-07-07T03:40:57.758Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="Windows配置"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置">Windows配置</a><time datetime="2022-07-07T03:40:57.743Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By DFNJKD98</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo_blog/js/utils.js"></script><script src="/hexo_blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

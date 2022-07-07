@@ -1,0 +1,819 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>OpenEuler学习记录 | DFNJKD98文档记录</title><meta name="author" content="DFNJKD98"><meta name="copyright" content="DFNJKD98"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OpenEuler 实验记录  一、操作系统安装与内核编译安装OpenEuler 镜像版本：openEuler-21.09-x86_64-dvd.iso      安装中。。。   连接网络 Red Hat Enterprise Linux 7 与 CentOS 7 中默认的网络服务由 NetworkManager 提供，这是动态控制及配置网络的守护进程，它用于保持当前网络设备及连接处于工作状态，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenEuler学习记录">
+<meta property="og:url" content="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/OpenEuler/index.html">
+<meta property="og:site_name" content="DFNJKD98文档记录">
+<meta property="og:description" content="OpenEuler 实验记录  一、操作系统安装与内核编译安装OpenEuler 镜像版本：openEuler-21.09-x86_64-dvd.iso      安装中。。。   连接网络 Red Hat Enterprise Linux 7 与 CentOS 7 中默认的网络服务由 NetworkManager 提供，这是动态控制及配置网络的守护进程，它用于保持当前网络设备及连接处于工作状态，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-07T03:40:57.567Z">
+<meta property="article:modified_time" content="2022-07-07T03:51:51.531Z">
+<meta property="article:author" content="DFNJKD98">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/hexo_blog/img/favicon.png"><link rel="canonical" href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/OpenEuler/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo_blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo_blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenEuler学习记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-07 11:51:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo_blog/">DFNJKD98文档记录</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenEuler学习记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-07T03:40:57.567Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-07T03:51:51.531Z" title="更新于 2022-07-07 11:51:51">2022-07-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenEuler学习记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 align="center" id="index">OpenEuler 实验记录</h1>
+
+<h2 id="一、操作系统安装与内核编译"><a href="#一、操作系统安装与内核编译" class="headerlink" title="一、操作系统安装与内核编译"></a>一、操作系统安装与内核编译</h2><h3 id="安装OpenEuler"><a href="#安装OpenEuler" class="headerlink" title="安装OpenEuler"></a>安装OpenEuler</h3><ul>
+<li>镜像版本：openEuler-21.09-x86_64-dvd.iso</li>
+</ul>
+<img src="/hexo_blog/2022/07/07/OpenEuler/1-第一章/1-%E5%88%9B%E5%BB%BAOpenEuler.jpg" alt="1-创建OpenEuler" style="zoom:67%;" />
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/2-2%E5%AE%89%E8%A3%85OpenEuler.jpg"></p>
+<ul>
+<li>安装中。。。</li>
+</ul>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/2-%E5%AE%89%E8%A3%85OpenEuler%E4%B8%AD.jpg"></p>
+<h4 id="连接网络"><a href="#连接网络" class="headerlink" title="连接网络"></a>连接网络</h4><blockquote>
+<p><em>Red Hat Enterprise Linux 7 与 CentOS 7 中默认的网络服务由 NetworkManager 提供，这是动态控制及配置网络的守护进程，它用于保持当前网络设备及连接处于工作状态，同时也支持传统的 ifcfg 类型的配置文件。</em></p>
+<p><em>NetworkManager 可以用于以下类型的连接：Ethernet，VLANS，Bridges，Bonds，Teams，Wi-Fi，mobile boradband（如移动3G）以及 IP-over-InfiniBand。针对与这些网络类型，NetworkManager 可以配置他们的网络别名，IP 地址，静态路由，DNS，VPN连接以及很多其它的特殊参数。</em></p>
+<p><em>可以用命令行工具 nmcli 来控制 NetworkManager。</em></p>
+<p><em>device叫网络接口，是物理设备</em></p>
+<p><em>connection是连接，偏重于逻辑设置</em></p>
+<p><em>多个connection可以应用到同一个device，但同一时间只能启用其中一个connection。这样的好处是针对一个网络接口，我们可以设置多个网络连接，比如静态IP和动态IP，再根据需要up相应connection</em></p>
+</blockquote>
+<ul>
+<li><p>查看可用设备</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli device status</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/image-20211122211530722.png" alt="image-20211122211530722"></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DEVICE</td>
+<td>表示网卡的名称（操作系统内核获取到的标识）</td>
+</tr>
+<tr>
+<td>TYPE</td>
+<td>表示网卡的类型</td>
+</tr>
+<tr>
+<td>STATE</td>
+<td>表示网卡与配置文件的连接状态（unmanaged表示不使用NetworkManager管理)</td>
+</tr>
+<tr>
+<td>CONNECTION</td>
+<td>网卡对应的配置文件名称</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>查看已有连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection show</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/image-20211122211724413.png" alt="image-20211122211724413"></p>
+</li>
+<li><p>启用连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection up ens33</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmcli conn up ens33</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmcli c up ens33</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/image-20211122211928375.png" alt="image-20211122211928375"></p>
+</li>
+<li><p>断开连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli c down ens33</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pipci/p/12570592.html">配置静态IP</a></h4><ul>
+<li><p>修改为手动获取IP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要先设置ip地址</span></span><br><span class="line">nmcli connection modify ens33 ipv4.method manual</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改ipv4地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection modify ens33 ipv4.addresses 192.168.223.130/24</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改ipv4网关</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection modify ens33 ipv4.gateway 192.168.223.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改ipv4 DNS</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection modify ens33 ipv4.dns 192.168.223.2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">DNS设定成网关的意思就是，凡是需要用到DNS解析的情况下，都交给路由器处理。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">路由器会交给下一个具有DNS功能的设备或交给DNS服务器。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开机自动连接网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection modify ens33 connection.autoconnect on</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/3-%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C.jpg"></p>
+</li>
+</ul>
+<h4 id="配置Xshell"><a href="#配置Xshell" class="headerlink" title="配置Xshell"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shireenlee4testing/p/9469650.html">配置Xshell</a></h4><ul>
+<li>保证主机和虚拟机处于同一子网</li>
+<li>虚拟机静态获取IP</li>
+<li>需要注意虚拟机的掩码、网关、DNS</li>
+</ul>
+<h4 id="更换软件源"><a href="#更换软件源" class="headerlink" title="更换软件源"></a>更换软件源</h4><ul>
+<li><p>执行以下命令，获取仓库配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/openEulerOS.repo https://repo.huaweicloud.com/repository/conf/openeuler_x86_64.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<strong>yum clean all</strong>清除原有yum缓存。</p>
+</li>
+<li><p>执行<strong>yum makecache</strong>生成新的缓存。</p>
+</li>
+</ul>
+<h3 id="编译内核源码"><a href="#编译内核源码" class="headerlink" title="编译内核源码"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56602092/article/details/118604262">编译内核源码</a></h3><h4 id="下载内核源码并解压"><a href="#下载内核源码并解压" class="headerlink" title="下载内核源码并解压"></a>下载内核源码并解压</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://gitee.com/openeuler/kernel/repository/archive/5.10.0-4.25.0?format=tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/4-2%E4%B8%8B%E8%BD%BD%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/5-%E5%AE%89%E8%A3%85tar%E5%91%BD%E4%BB%A4.jpg"></p>
+<img src="/hexo_blog/2022/07/07/OpenEuler/1-第一章/6-%E8%A7%A3%E5%8E%8B%E6%BA%90%E7%A0%81%E5%8E%8B%E7%BC%A9%E5%8C%85.jpg" style="zoom:67%;" />
+
+<h4 id="生成内核配置文件-config"><a href="#生成内核配置文件-config" class="headerlink" title="生成内核配置文件.config"></a>生成内核配置文件.config</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
+
+<h4 id="更改编译配置"><a href="#更改编译配置" class="headerlink" title="更改编译配置"></a>更改编译配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make menuconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先Load载入原始.config配置</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加KVM支持 - http://blog.chinaunix.net/uid-31410005-id-5776786.html</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/12-menuconfig.jpg"></p>
+<h4 id="安装一些依赖"><a href="#安装一些依赖" class="headerlink" title="安装一些依赖"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52688128/article/details/114905052">安装一些依赖</a></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install ncurses-devel</span><br><span class="line">yum install bison</span><br><span class="line">yum install openssl-devel</span><br><span class="line">yum install ncurses-devel</span><br><span class="line">yum install elfutils-libelf-devel</span><br><span class="line">yum install bc</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/8-%E5%AE%89%E8%A3%85openssl.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/9-%E5%AE%89%E8%A3%85ncurses-devel.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/10-%E5%AE%89%E8%A3%85flex%E5%91%BD%E4%BB%A4.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/11-%E5%AE%89%E8%A3%85bison%E5%91%BD%E4%BB%A4.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/15-%E5%AE%89%E8%A3%85bc%E4%BE%9D%E8%B5%96.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/16-%E5%AE%89%E8%A3%85elfutils-libelf-devel%E4%BE%9D%E8%B5%96.jpg"></p>
+<h4 id="编译，安装模块，安装内核"><a href="#编译，安装模块，安装内核" class="headerlink" title="编译，安装模块，安装内核"></a>编译，安装模块，安装内核</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make -j4</span><br><span class="line">make modules_install</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/17-2%E6%89%A7%E8%A1%8Cmake.jpg"></p>
+<ul>
+<li>执行<code>make modules_install</code></li>
+</ul>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/19-%E6%89%A7%E8%A1%8Cmake_modules_install.jpg"></p>
+<ul>
+<li>执行<code>make install</code></li>
+</ul>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/21-%E5%BC%80%E5%A7%8Bmake_install.jpg"></p>
+<h4 id="更新引导"><a href="#更新引导" class="headerlink" title="更新引导"></a>更新引导</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/23-%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/29-%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2-new.jpg"></p>
+<h4 id="查看所有可用内核"><a href="#查看所有可用内核" class="headerlink" title="查看所有可用内核"></a>查看所有可用内核</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /boot/grub2/grub.cfg |grep &quot;menuentry &quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看当前默认启动内核"><a href="#查看当前默认启动内核" class="headerlink" title="查看当前默认启动内核"></a>查看当前默认启动内核</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-editenv list</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改默认启动内核"><a href="#修改默认启动内核" class="headerlink" title="修改默认启动内核"></a>修改默认启动内核</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-set-default 5.10.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="x2F-boot目录"><a href="#x2F-boot目录" class="headerlink" title="&#x2F;boot目录"></a>&#x2F;boot目录</h4><ul>
+<li>vmlinuz是在启动过程中最重要的一个文件，因为这个文件就是实际系统所使用的kernel。</li>
+<li>System.map文件是系统Kernel中的变量对应表</li>
+</ul>
+<p>在2.6版本的linux内核中，都包含一个压缩过的cpio格式的打包文件。当内核启动时，会从这个打包文件中导出文件到内核的rootfs文件系统，然后内核检查rootfs中是否包含有init文件，如果有则执行它，<strong>作为PID为1的第一个进程</strong>。这个init进程负责启动系统后续的工作，包括定位、挂载“真正的”根文件系统设备（如果有的话）。如果内核没有在 rootfs中找到init文件，则内核会按以前版本的方式定位、挂载根分区，然后执行&#x2F;sbin&#x2F;init程序完成系统的后续初始化工作。</p>
+<p><strong>这个压缩过的cpio格式的打包文件就是initramfs</strong>。编译2.6版本的linux内核时，编译系统总会创建initramfs，然后把它与编译好的内核连接在一起。内核源代码树中的usr目录就是专门用于构建内核中的initramfs的，其中的initramfs_data.cpio.gz文件就是initramfs。缺省情况下，initramfs是空的，X86架构下的文件大小是134个字节。</p>
+<h3 id="系统启动流程"><a href="#系统启动流程" class="headerlink" title="系统启动流程"></a>系统启动流程</h3><h4 id="CentOS6-x启动流程："><a href="#CentOS6-x启动流程：" class="headerlink" title="CentOS6.x启动流程："></a><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1013.html">CentOS6.x启动流程</a>：</h4><ol>
+<li>服务器加电，加载 BIOS 信息，BIOS 进行系统检测。依照 BIOS 设定，找到第一个可以启动的设备（一般是硬盘）；</li>
+<li>读取第一个启动设备的 MBR (主引导记录），加载 MBR 中的 Boot Loader（启动引导程序，最为常见的是 GRUB）。</li>
+<li>依据 Boot Loader 的设置加载内核，内核会再进行一遍系统检测。系统一般会采用内核检测硬件的信息，而不一定采用 Bios 的自检信息。内核在检测硬件的同时，还会通过加载动态模块的形式加载硬件的驱动。</li>
+<li>内核启动系统的第一个进程，也就是 &#x2F;sbin&#x2F;init。</li>
+<li>由 &#x2F;sbin&#x2F;init 进程调用 &#x2F;etc&#x2F;init&#x2F;rcS.conf 配置文件，通过这个配置文件调用  &#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit 配置文件。而 &#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit  配置文件是用来进行系统初始化的，主要用于配置计算机的初始环境。</li>
+<li>还是通过 &#x2F;etc&#x2F;init&#x2F;rcS.conf 配置文件调用 &#x2F;etc&#x2F;inittab 配置文件。通过 &#x2F;etc&#x2F;inittab 配置文件来确定系统的默认运行级别。</li>
+<li>确定默认运行级别后，调用 &#x2F;etc&#x2F;init&#x2F;rc.conf 配置文件。</li>
+<li>通过 &#x2F;etc&#x2F;init&#x2F;rc.conf 配置文件调用并执行 &#x2F;etc&#x2F;rc.d&#x2F;rc 脚本，并传入运行级别参数。</li>
+<li>&#x2F;etc&#x2F;rc.d&#x2F;rc 确定传入的运行级别，然后运行相应的运行级别目录 &#x2F;etc&#x2F;rc[0-6].d&#x2F; 中的脚本。</li>
+<li>&#x2F;etc&#x2F;rc[0-6].d&#x2F; 目录中的脚本依据设定好的优先级依次启动和关闭。</li>
+<li>最后执行 &#x2F;etc&#x2F;rc.d&#x2F;rc.local 中的程序。</li>
+<li>如果是字符界面启动，就可以看到登录界面了。如果是图形界面启动，就会调用相应的 X Window 接口。</li>
+</ol>
+<h4 id="BIOS开机自检"><a href="#BIOS开机自检" class="headerlink" title="BIOS开机自检"></a>BIOS开机自检</h4><p>服务器通电后，会直接进入 BIOS，BIOS 全称 Basic Input&#x2F;Output System，中文可译为基本输入&#x2F;输出系统。</p>
+<p> 简单地理解 BIOS，它就是固化在主板上一个 ROM（只读存储器）芯片上的程序，主要保存计算机的基本输入&#x2F;输出信息、系统设置信息、开机自检程和系统自启动程序，用来为 计算机提供最底层和最直接的硬件设置与控制。</p>
+<p> 也就是说，BIOS 是硬件与软件之间的接口，而且是非常基本的接口，BIOS 提供了一组基本的操作系统使用的指令，系统启动的成功与否，依赖于 BIOS。</p>
+<p> BIOS 的初始化主要完成以下 3 项工作：</p>
+<ol>
+<li>第一次检查计算机硬件和外围设备（第二次自检由内核完后，后续会讲），例如 CPU、内存、风扇灯。当 BIOS 一启动，就会做一个自我检测的工作，整个自检过程也被称为 POST（Power On Self Test）自检。</li>
+<li>如果自检没有问题，BIOS 开始对硬件进行初始化，并规定当前可启动设备的先后顺序，选择由那个设备来开机。</li>
+<li>选择好开启设备后，就会从该设备的 MBR（主引导目录）中读取 Boot Loader（启动引导程序）并执行。启动引导程序用于引导操作系统启动，Linux 系统中默认使用的启动引导程序是 GRUB。</li>
+</ol>
+<p> 当 MBR 被加载到 RAM 之后，BIOS 就会将控制权交给 MBR，进入系统引导的第二阶段。</p>
+<h4 id="主引导目录（MBR）结构及作用详解"><a href="#主引导目录（MBR）结构及作用详解" class="headerlink" title="主引导目录（MBR）结构及作用详解"></a>主引导目录（MBR）结构及作用详解</h4><ul>
+<li><p>MBR 也就是主引导记录，位于硬盘的 0 磁道、0 柱面、1 扇区中，主要记录了启动引导程序和磁盘的分区表。MBR 共占用了一个扇区，也就是 512 Byte。其中 446 Byte 安装了启动引导程序，其后 64 Byte 描述分区表，最后的 2  Byte 是结束标记。</p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/2-1Q0221G321149.jpg" alt="img"></p>
+</li>
+<li><p>我们已经知道，每块硬盘只能划分 4 个主分区，原因就是在 MBR 中描述分区表的空间只有 64  Byte。其中每个分区必须占用 16 Byte，那么 64 Byte 就只能划分 4 个主分区。每个分区的 16 字节的规划如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">存储字节</th>
+<th align="center">数据内容及含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第 1 字节</td>
+<td align="center">引导标志</td>
+</tr>
+<tr>
+<td align="center">第 2 字节</td>
+<td align="center">本分区的起始磁道号</td>
+</tr>
+<tr>
+<td align="center">第 3 字节</td>
+<td align="center">本分区的起始扇区号</td>
+</tr>
+<tr>
+<td align="center">第 4 字节</td>
+<td align="center">本分区的起始柱面号</td>
+</tr>
+<tr>
+<td align="center">第 5 字节</td>
+<td align="center">分区类型，可以识别主分区和扩展分区</td>
+</tr>
+<tr>
+<td align="center">第 6 字节</td>
+<td align="center">本分区的结束磁道号</td>
+</tr>
+<tr>
+<td align="center">第 7 字节</td>
+<td align="center">本分区的结束扇区号</td>
+</tr>
+<tr>
+<td align="center">第 8 字节</td>
+<td align="center">本分区的结束柱面号</td>
+</tr>
+<tr>
+<td align="center">第 9~12 字节</td>
+<td align="center">本分区之前已经占用的扇区数</td>
+</tr>
+<tr>
+<td align="center">第 13~16 字节</td>
+<td align="center">本分区的总扇区数</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="启动引导程序的作用"><a href="#启动引导程序的作用" class="headerlink" title="启动引导程序的作用"></a>启动引导程序的作用</h4><p><strong>BIOS 的作用就是自检，然后从 MBR 中读取出启动引导程序</strong>。那么，<strong>启动引导程序最主要的作用就是加载操作系统的内核</strong>。当然，每种操作系统的启动引导程序都是不同的。</p>
+<p>每种操作系统的文件格式不同，因此，每种操作系统的启动引导程序也不一样。不同的操作系统只有使用自己的启动引导程序才能加载自己的内核。<strong>如果我的服务器上只安装了一个操作系统，那么这个操作系统的启动引导程序就会安装在 MBR 中。BIOS 调用 MBR 时读取出启动引导程序,就可以加载内核了。</strong></p>
+<p>但是在有些时候，我的服务器中安装了多个操作系统，而 MBR 只有一 个，那么在 MBR 中到底安装哪个操作系统的启动引导程序呢？</p>
+<p>很明显，一个 MBR 是不够用的。<strong>每块硬盘只能有一个 MBR 是不能更改的</strong>，所以不可能増加 MBR  的数量。<strong>系统只能在每个文件系统（可以看成分区）中单独划分出一个扇区，称作引导扇区（Boot  Sector)。每个分区的引导扇区中也能安装启动引导程序，也就是说，在 MBR  和每个单独分区的引导扇区中都可以安装启动引导程序。</strong>这样多个操作系统才能安装在同一台服务器中（每个操作系统要安装在不同的分区中），而且每个操作系统都是可以启动的。</p>
+<p>还有一个问题，BIOS 只能找到 MBR 中的启动引导程序，而找不到在分区的引导扇区中的启动引导程序。那么，<strong>要想完成多系统启动，我们的方法是増加启动引导程序的功能，让安装到 MBR 中的启动引导程序（GRUB）可以调用在分区的引导扇区中的其他启动引导程序。</strong></p>
+<p>因此，<strong>启动引导程序拥有以下功能</strong>：</p>
+<ol>
+<li>加载操作系统的内核。这是启动引导程序最主要的功能。</li>
+<li>拥有一个可以让用户选择的菜单，来选择到底启动哪个系统。大家如果在服务器上安装过双 Windows 系统，就应该见过类似的选择菜单，不过这个选择菜单是由 Windows 的启动引导程序提供的，而不是 GRUB。</li>
+<li>可以调用其他的启动引导程序，这是多系统启动的关键。不过需要注意的是，<strong>Windows 的启动引导程序不能调用 Linux  的启动引导程序，所以我们一般建议先安装 Windows，后安装 Linux，是为了将 Linux 的启动引导程序安装到 MBR 中，覆盖  Windows 的启动引导程序。</strong></li>
+</ol>
+<p> 当然，这个安装顺序不是绝对的，就算最后安装了 Windows，我们也可以通过手工再安装 GRUB 的方法，来保证 MBR 中安装的还是 Linux 的启动引导程序。</p>
+<h4 id="加载内核模块"><a href="#加载内核模块" class="headerlink" title="加载内核模块"></a>加载内核模块</h4><p>GRUB 加载了内核之后，内核首先会再进行二次系统的自检，而不一定使用 BIOS 检测的硬件信息。</p>
+<p>内核完成再次系统自检之后，开始采用动态的方式加载每个硬件的模块，这个动态模块大家可以想象成硬件的驱动（默认 Linux  硬件的驱动是不需要手工安装的，如果是重要的功能，则会直接编译到内核当中；如果是非重要的功能，比如硬件驱动会编译为模块，则在需要时由内核调用。</p>
+<p>在多数 Linux 中，都会把硬件的驱动程序编译为模块， 这些模块保存在 &#x2F;lib&#x2F;modules 目录中。常见的 USB、SATA 和 SCSI 等硬盘设备的驱动，还有一些特殊的文件系统（如 LVM、RAID 等）的驱动，都是以模块的方式来保存的。</p>
+<p>如果 Linux 安装在 IDE 硬盘之上，并且采用的是默认的 ext3&#x2F;4  文件系统，那么内核启动后加载根分区和模块的加载都没有什么问题，系统会顺利启动。但是，如果 Linux 安装在 SCSI 硬盘之上，或者采用的是  LVM 文件系统，那么内核（内核载入内存是启动引导程序 GRUB 调用的，并不存在硬盘驱动不识别的问题）在加载根目录之前是需要加载 SCSI  硬盘或 LVM 文件系统的驱动的。</p>
+<p> SCSI 硬盘和 LVM 文件系统的驱动都放在硬盘的 &#x2F;lib&#x2F;modules 目录中，<strong>既然内核没有办法识别 SCSI 硬盘或 LVM  文件系统，那怎么可能读取 &#x2F;lib&#x2F;modules 目录中的驱动呢？Linux 给出的解决办法是使用 initramfs  这个虚拟文件系统来处理这个问题。</strong></p>
+<h4 id="initramfs文件系统"><a href="#initramfs文件系统" class="headerlink" title="initramfs文件系统"></a>initramfs文件系统</h4><p>CentOS 6.x 中使用 initramfs 虚拟文件系统取代了 CentOS 5.x 中的 initrd RAM  Disk。它们的作用类似，可以通过启动引导程序加载到内存中，然后会解压缩并在内存中仿真成一个根目录，并且这个仿真的文件系统能够提供一个可执行程序，通过该程序来加载启动过程中所需的内核模块，比如 USB、SATA. SCSI 硬盘的驱动和 LVM、RAID 文件系统的驱动。</p>
+<p> <strong>也就是说，通过 initramfs 虚拟文件系统在内存中模拟出一个根目录，然后在这个模拟根目录中加载 SCSI 等硬件的驱动，就可以加载真正的根目录了，之后才能调用 Linux 的第一个进程 &#x2F;sbin&#x2F;init。</strong></p>
+<p> Initramfs 虚拟文件系统主要有以下优点：</p>
+<ul>
+<li>initramfs 随着其中数据的増减自动増减容量。</li>
+<li>在 initramfs 和页面缓存之间没有重复数据。</li>
+<li>initramfs 重复利用了 Linux caching 的代码，因此几乎没有増加内核尺寸，而 caching 的代码已经经过良好测试，所以 initramfs 的代码质量也有保证。</li>
+<li>不需要额外的文件系统驱动。</li>
+</ul>
+<h3 id="内核模块编程"><a href="#内核模块编程" class="headerlink" title="内核模块编程"></a>内核模块编程</h3><h4 id="编写helloworld模块"><a href="#编写helloworld模块" class="headerlink" title="编写helloworld模块"></a>编写helloworld模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/31-%E7%BC%96%E5%86%99%E6%A8%A1%E5%9D%97helloworld.jpg"></p>
+<h4 id="编写Makefile文件"><a href="#编写Makefile文件" class="headerlink" title="编写Makefile文件"></a>编写Makefile文件</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/32-%E7%BC%96%E5%86%99Makefile.jpg"></p>
+<h4 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h4><img src="/hexo_blog/2022/07/07/OpenEuler/1-第一章/33-make%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97.png" style="zoom:80%;" />
+
+<h4 id="加载与卸载模块"><a href="#加载与卸载模块" class="headerlink" title="加载与卸载模块"></a>加载与卸载模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/1-%E7%AC%AC%E4%B8%80%E7%AB%A0/33-%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97.jpg"></p>
+<h2 id="二、内存管理"><a href="#二、内存管理" class="headerlink" title="二、内存管理"></a>二、内存管理</h2><h3 id="kmalloc"><a href="#kmalloc" class="headerlink" title="kmalloc"></a>kmalloc</h3><blockquote>
+<p>kmalloc用于内核的内存分配，需要注意的是：<strong>kmalloc一般用于小内存的分配</strong>，kmalloc最大只能开辟128k-16，16个字节是被页描述符结构占用了。另外，很多硬件需要一块比较大的连续内存用作DMA传送。这块内存需要一直驻留在内存，不能被交换到文件中去。但是kmalloc最多只能开辟大小为32*PAGE_SIZE的内存，一般的PAGE_SIZE&#x3D;4KB，也就是128KB的大小的内存。</p>
+</blockquote>
+<h4 id="编写源文件"><a href="#编写源文件" class="headerlink" title="编写源文件"></a>编写源文件</h4><img src="/hexo_blog/2022/07/07/OpenEuler/2-第二章/1-kmalloc%E6%BA%90%E7%A0%81.jpg" style="zoom:80%;" />
+
+<h4 id="编写Makefile文件-1"><a href="#编写Makefile文件-1" class="headerlink" title="编写Makefile文件"></a>编写Makefile文件</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-kmalloc-Makefile.jpg"></p>
+<h4 id="加载模块与卸载模块"><a href="#加载模块与卸载模块" class="headerlink" title="加载模块与卸载模块"></a>加载模块与卸载模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/3-kmalloc%E7%9A%84%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%8D%B8%E8%BD%BD.jpg"></p>
+<h3 id="vmalloc"><a href="#vmalloc" class="headerlink" title="vmalloc"></a>vmalloc</h3><blockquote>
+<p>vmalloc函数的工作方式类似于kmalloc，只不过前者分配的内存虚拟地址是连续的，而物理地址则无需连续。它通过分配非连续的物理内存块，再修改页表，把内存映射到逻辑地址空间的连续区域中。通过vmalloc获得的页必须一个一个地进行映射，效率不高，因此，只在不得已（一般是为了获得大块内存）时使用。vmalloc函数返回一个指针，指向逻辑上连续的一块内存区，其大小至少为size。在发生错误时，函数返回NULL。vmalloc可能睡眠，因此，不能从中断上下文中进行调用，也不能从其它不允许阻塞的情况下调用。</p>
+<p><strong>kmalloc能分配的大小有限，vmalloc能分配的大小相对较大，但是vmalloc比kmalloc速度要慢。</strong></p>
+</blockquote>
+<h4 id="编写源文件-1"><a href="#编写源文件-1" class="headerlink" title="编写源文件"></a>编写源文件</h4><img src="/hexo_blog/2022/07/07/OpenEuler/2-第二章/4-vmalloc%E6%BA%90%E7%A0%81.png" style="zoom:80%;" />
+
+<h4 id="编写Makefile文件-2"><a href="#编写Makefile文件-2" class="headerlink" title="编写Makefile文件"></a>编写Makefile文件</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/5-vmalloc-Makefile.jpg"></p>
+<h4 id="加载模块与卸载模块-1"><a href="#加载模块与卸载模块-1" class="headerlink" title="加载模块与卸载模块"></a>加载模块与卸载模块</h4><img src="/hexo_blog/2022/07/07/OpenEuler/2-第二章/6-vmalloc%E7%9A%84%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%8D%B8%E8%BD%BD.jpg" style="zoom:80%;" />
+
+<h3 id="研讨"><a href="#研讨" class="headerlink" title="研讨"></a>研讨</h3><h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><blockquote>
+<p> 程序中己动态分配的内存未释放或无法释放，就产生了内存泄露</p>
+</blockquote>
+<ul>
+<li>危害<ul>
+<li>可用的内存越来越少，堆积后的后果就导致内存溢出</li>
+<li>导致其他应用程序无法使用内存</li>
+<li>应用程序访问内存时，不停地产生缺页错误</li>
+<li>使得CPU不停地从磁盘上的swap空间读取页面数据，导致应用程序性能下降，cpu无法进行其他工作。</li>
+</ul>
+</li>
+<li>检查和预防<ul>
+<li>使用带有自动垃圾回收机制的程序语言编写程序</li>
+<li>使用内存泄露检测器，在编写代码过程中对代码进行检测</li>
+</ul>
+</li>
+</ul>
+<h4 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h4><blockquote>
+<p>程序在申请内存时，没有足够的内存空间供其使用</p>
+</blockquote>
+<ul>
+<li>危害<ul>
+<li>程序无法运行，有时候会自动关闭软件</li>
+<li>易遭受缓冲区溢出攻击&#x2F;黑客攻击</li>
+</ul>
+</li>
+<li>检查和预防<ul>
+<li>防止内存泄露</li>
+</ul>
+</li>
+</ul>
+<h4 id="内存越界"><a href="#内存越界" class="headerlink" title="内存越界"></a>内存越界</h4><blockquote>
+<p>程序向系统申请一块内存后，使用时超出申请范围</p>
+</blockquote>
+<ul>
+<li>危害<ul>
+<li>导致内存越界错误，程序向内存块中写入数据，超过内存块的边界，写到了其他内存对象中，导致覆盖了其他内存对象中的数据</li>
+</ul>
+</li>
+<li>检查和预防<ul>
+<li>使用安全的语言</li>
+<li>使用安全的函数库</li>
+<li>边界检测，防止越界的发生</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、进程管理"><a href="#三、进程管理" class="headerlink" title="三、进程管理"></a>三、进程管理</h2><h3 id="内核线程"><a href="#内核线程" class="headerlink" title="内核线程"></a>内核线程</h3><h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/1-%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B.jpg"></p>
+<h3 id="打印输出CPU负载情况"><a href="#打印输出CPU负载情况" class="headerlink" title="打印输出CPU负载情况"></a>打印输出CPU负载情况</h3><h4 id="x2F-proc目录"><a href="#x2F-proc目录" class="headerlink" title="&#x2F;proc目录"></a>&#x2F;proc目录</h4><p><strong>Linux系统上的&#x2F;proc目录是一种文件系统，即proc文件系统。</strong>与其它常见的文件系统不同的是，&#x2F;proc是一种伪文件系统（也即虚拟文件系统），<strong>存储的是当前内核运行状态的一系列特殊文件</strong>，用户可以通过这些文件查看有关系统硬件及当前正在运行进程的信息，甚至可以通过更改其中某些文件来改变内核的运行状态。</p>
+<p>基于 &#x2F;proc文件系统如上所述的特殊性，其内的文件也常被称作虚拟文件，并具有一些独特的特点。例如，其中有些文件虽然使用查看命令查看时会返回大量信息，但文件本身的大小却会显示为0字节。此外，这些特殊文件中大多数文件的时间及日期属性通常为当前系统时间和日期，这跟它们随时会被刷新（存储于RAM中）有关。</p>
+<p>为了查看及使用上的方便，这些文件通常会按照相关性进行分类存储于不同的目录甚至子目录中，<strong>如&#x2F;proc&#x2F;scsi目录中存储的就是当前系统上所有SCSI设备的相关信息，&#x2F;proc&#x2F;N中存储的则是系统当前正在运行的进程的相关信息，其中N为正在运行的进程PID（在某进程结束后其相关目录则会消失）。</strong></p>
+<p>大多数虚拟文件可以使用文件查看命令如cat、more或者less进行查看，有些文件信息表述的内容可以一目了然，但也有文件的信息却不怎么具有可读性。不过，这些可读性较差的文件在使用一些命令如apm、free、lspci或top查看时却可以有着不错的表现。</p>
+<table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;proc&#x2F;cpuinfo</td>
+<td>CPU 的信息 (型号, 家族, 缓存大小等)</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;meminfo</td>
+<td>物理内存、交换空间等的信息</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;loadavg</td>
+<td>查看系统1分钟、5分钟、15分钟的平均负载情况</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;mounts</td>
+<td>已加载的文件系统的列表</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;devices</td>
+<td>可用设备的列表</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;filesystems</td>
+<td>被支持的文件系统</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;modules</td>
+<td>已加载的模块</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;version</td>
+<td>内核版本</td>
+</tr>
+<tr>
+<td>&#x2F;proc&#x2F;cmdline</td>
+<td>系统启动时输入的内核命令行参数</td>
+</tr>
+</tbody></table>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/2-%E8%8E%B7%E5%BE%97CPU%E8%B4%9F%E8%BD%BD.jpg"></p>
+<h3 id="打印输出运行进程的PID和名字"><a href="#打印输出运行进程的PID和名字" class="headerlink" title="打印输出运行进程的PID和名字"></a>打印输出运行进程的PID和名字</h3><h4 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/3-%E8%8E%B7%E5%8F%96%E8%BF%90%E8%A1%8C%E8%BF%9B%E7%A8%8B%E7%9A%84PID%E5%92%8Cname.jpg"></p>
+<h3 id="cgroups"><a href="#cgroups" class="headerlink" title="cgroups"></a>cgroups</h3><h4 id="cgroups介绍"><a href="#cgroups介绍" class="headerlink" title="cgroups介绍"></a>cgroups介绍</h4><p>cgroups是control groups的缩写，是Linux内核提供的一种可以限制，记录，隔离进程组(process groups)所使用物理资源的机制cgroups是Linux内核提供的一种机制，这种机制可以根据特定的行为，把一系列系统任务及其子任务整合（或分隔）到按资源划分等级的不同组内，从而为系统资源管理提供一个统一的框架。通俗点说，cgroups可以限制、记录、隔离进程组所使用的物理资源（包括：CPU、memory、IO等）。</p>
+<p>从本质上来说，cgroups是内核附加在程序上的一系列钩子，通过程序运行时对资源的调度触发相应的钩子以达到资源追踪和限制的目的</p>
+<h4 id="cgroups相关概念"><a href="#cgroups相关概念" class="headerlink" title="cgroups相关概念"></a>cgroups相关概念</h4><blockquote>
+<p> cgroups主要由task,cgroup,subsystem及hierarchy构成</p>
+</blockquote>
+<ul>
+<li><p>task：在Cgroups中，task就是系统的一个进程</p>
+</li>
+<li><p>cgroup</p>
+<ul>
+<li>cgroups中的资源控制都以cgroup为单位实现的。</li>
+<li>cgroup表示按照某种资源控制标准划分而成的任务组，包含一个或多个子系统。</li>
+<li>一个任务可以加入某个cgroup，也可以从某个cgroup迁移到另外一个cgroup</li>
+</ul>
+</li>
+<li><p>subsystem</p>
+<ul>
+<li>cgroups中的subsystem就是一个资源调度控制器(Resource Controller)。</li>
+<li>比如CPU子系统可以控制CPU时间分配，内存子系统可以限制cgroup内存使用量</li>
+</ul>
+</li>
+<li><p>hierarchy</p>
+<ul>
+<li>hierarchy由一系列cgroup以一个树状结构排列而成，每个hierarchy通过绑定对应的subsystem进行资源调度。</li>
+<li>hierarchy中的cgroup节点可以包含零或多个子节点，子节点继承父节点的属性。整个系统可以有多个hierarchy</li>
+</ul>
+</li>
+</ul>
+<h4 id="组件之间的关系"><a href="#组件之间的关系" class="headerlink" title="组件之间的关系"></a>组件之间的关系</h4><ul>
+<li><p>同一个hierarchy能够附加一个或多个subsystem。例如cpu和memory subsystems(或者任意多个subsystems)附加到同一个hierarchy</p>
+<img src="/hexo_blog/2022/07/07/OpenEuler/1070925-20201124165227961-1151966146.png" alt="img" style="zoom: 25%;" />
+</li>
+<li><p>cpu subsystem已经附加到了hierarchy A，并且memory subsystem已经附加到了hierarchy B，此时cpu subsystem不能在附加到hierarchy B</p>
+<img src="/hexo_blog/2022/07/07/OpenEuler/1070925-20201124165350137-215436245.png" alt="img" style="zoom:25%;" />
+</li>
+<li><p>一个task不能存在于同一个hierarchy的不同cgroup，但可以存在在不同hierarchy中的多个cgroup</p>
+<p>系统每次新建一个hierarchy时，该系统上的所有task默认构成了这个新建的hierarchy的初始化cgroup，这个cgroup也称为root cgroup。</p>
+</li>
+<li><p>系统中的任何一个task(Linux中的进程)fork自己创建一个子task(子进程)时，子task会自动的继承父task cgroup的关系，在同一个cgroup中，但是子task可以根据需要移到其它不同的cgroup中。父子task之间是相互独立不依赖的。</p>
+</li>
+</ul>
+<h4 id="tmpfs文件系统"><a href="#tmpfs文件系统" class="headerlink" title="tmpfs文件系统"></a>tmpfs文件系统</h4><p><strong>tmpfs即临时文件系统，是一种基于内存的文件系统，也称之为虚拟内存文档系统。</strong>它不同于传统的用块设备形式来实现的ramdisk，也不同于针对物理内存的ramfs。tmpfs能够使用物理内存，也能够使用交换分区。</p>
+<p>在Linux内核中，虚拟内存资源由物理内存（RAM）和交换分区swap组成，这些资源是由内核中的虚拟内存子系统来负责分配和管理。tmpfs就是和虚拟内存子系统来”打交道”的，他向虚拟内存子系统请求页来存储文档，他同Linux的其他请求页的部分相同，不知道分配给自己的页是在内存中还是在交换分区中。tmpfs同ramfs相同，其大小也不是固定的，而是随着所需要的空间而动态的增减。</p>
+<p><strong>所有在 tmpfs 上储存的资料在理论上都是临时存放的，也就是说，档案不会建立在硬盘上面。一旦重新开机，所有在 tmpfs 里面的资料都会消失不见。</strong>理论上，内存使用量会随着 tmpfs 的使用而时有增长或消减。tmpfs将所有内容放入内核内部高速缓存中，并进行扩展和收缩以容纳其中包含的文件，并且能够将不需要的页面交换出来以交换空间。它具有最大大小限制，可以通过“ mount -o remount …”即时调整。</p>
+<p><strong>由于tmpfs完全存在于页面缓存和交换中，因此所有tmpfs页面将在 &#x2F;proc&#x2F;meminfo中显示为 “Shmem”</strong>，在free命令后中显示为“Shared”。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:          433Mi       228Mi        23Mi       3.0Mi       181Mi       194Mi</span><br><span class="line">Swap:         1.6Gi        44Mi       1.6Gi</span><br></pre></td></tr></table></figure>
+
+<h3 id="cgroup限制cpu核数"><a href="#cgroup限制cpu核数" class="headerlink" title="cgroup限制cpu核数"></a>cgroup限制cpu核数</h3><h4 id="安装libcgroup"><a href="#安装libcgroup" class="headerlink" title="安装libcgroup"></a>安装libcgroup</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/4-%E6%8C%89%E7%85%A7libcgroup.jpg"></p>
+<h4 id="挂载tmpfs格式的cgroup文件夹"><a href="#挂载tmpfs格式的cgroup文件夹" class="headerlink" title="挂载tmpfs格式的cgroup文件夹"></a>挂载tmpfs格式的cgroup文件夹</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/5-%E5%88%9B%E5%BB%BAmycpuset.jpg"></p>
+<h4 id="挂载cpuset管理子系统"><a href="#挂载cpuset管理子系统" class="headerlink" title="挂载cpuset管理子系统"></a>挂载cpuset管理子系统</h4><ul>
+<li>如上图</li>
+</ul>
+<h4 id="限制使用cpu的核数"><a href="#限制使用cpu的核数" class="headerlink" title="限制使用cpu的核数"></a>限制使用cpu的核数</h4><img src="/hexo_blog/2022/07/07/OpenEuler/3-第三章/6-%E9%99%90%E5%88%B6%E4%BD%BF%E7%94%A8cpu%E6%A0%B8%E6%95%B0.jpg" style="zoom: 80%;" />
+
+<h4 id="编译运行while-long"><a href="#编译运行while-long" class="headerlink" title="编译运行while_long"></a>编译运行while_long</h4><img src="/hexo_blog/2022/07/07/OpenEuler/3-第三章/7-%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cwhile_long.jpg" style="zoom:67%;" />
+
+<h4 id="查看while-long的运行情况"><a href="#查看while-long的运行情况" class="headerlink" title="查看while_long的运行情况"></a>查看while_long的运行情况</h4><img src="/hexo_blog/2022/07/07/OpenEuler/3-第三章/9-%E6%9F%A5%E7%9C%8Bwhile_long%E7%9A%84%E8%BF%90%E8%A1%8C%E6%83%85%E5%86%B5.jpg" style="zoom: 67%;" />
+
+<h3 id="cgroup禁止访问U盘"><a href="#cgroup禁止访问U盘" class="headerlink" title="cgroup禁止访问U盘"></a>cgroup禁止访问U盘</h3><h4 id="查看U盘盘符"><a href="#查看U盘盘符" class="headerlink" title="查看U盘盘符"></a>查看U盘盘符</h4><img src="/hexo_blog/2022/07/07/OpenEuler/3-第三章/10-%E8%8E%B7%E5%8F%96U%E7%9B%98%E7%9B%98%E7%AC%A6.jpg" style="zoom: 67%;" />
+
+<h4 id="获取设备号"><a href="#获取设备号" class="headerlink" title="获取设备号"></a>获取设备号</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/11-%E8%8E%B7%E5%8F%96U%E7%9B%98%E8%AE%BE%E5%A4%87%E5%8F%B7.jpg"></p>
+<h4 id="挂载U盘到当前系统"><a href="#挂载U盘到当前系统" class="headerlink" title="挂载U盘到当前系统"></a>挂载U盘到当前系统</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/12-%E6%8C%82%E8%BD%BDU%E7%9B%98%E5%88%B0%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F.jpg"></p>
+<h4 id="挂载设备管理devices子系统"><a href="#挂载设备管理devices子系统" class="headerlink" title="挂载设备管理devices子系统"></a>挂载设备管理devices子系统</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/13-%E6%8C%82%E8%BD%BDdevices%E5%AD%90%E7%B3%BB%E7%BB%9F.jpg"></p>
+<h4 id="创建cgroup前后对比"><a href="#创建cgroup前后对比" class="headerlink" title="创建cgroup前后对比"></a>创建cgroup前后对比</h4><img src="/hexo_blog/2022/07/07/OpenEuler/3-第三章/14-%E5%88%9B%E5%BB%BAcgroup%E5%89%8D%E5%90%8E%E5%AF%B9%E6%AF%94.jpg" style="zoom:80%;" />
+
+<h4 id="测试访问U盘"><a href="#测试访问U盘" class="headerlink" title="测试访问U盘"></a>测试访问U盘</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/15-%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AEU%E7%9B%98.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/3-%E7%AC%AC%E4%B8%89%E7%AB%A0/16-%E6%8B%92%E7%BB%9D%E5%92%8C%E5%85%81%E8%AE%B8%E8%AE%BF%E9%97%AEU%E7%9B%98.jpg"></p>
+<h2 id="四、终端和异常管理"><a href="#四、终端和异常管理" class="headerlink" title="四、终端和异常管理"></a>四、终端和异常管理</h2><h3 id="软中断、tasklet、工作队列和进程上下文"><a href="#软中断、tasklet、工作队列和进程上下文" class="headerlink" title="软中断、tasklet、工作队列和进程上下文"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/godleading/article/details/52971179">软中断、tasklet、工作队列和进程上下文</a></h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/20161030104807713.bmp" alt="执行绪关系"></p>
+<h4 id="上半部和下半部"><a href="#上半部和下半部" class="headerlink" title="上半部和下半部"></a>上半部和下半部</h4><ul>
+<li>上半部指的是中断处理程序，下半部则指的是一些虽然与中断有相关性但是可以延后执行的任务。</li>
+<li>举个例子：在网络传输中，网卡接收到数据包这个事件不一定需要马上被处理，适合用下半部去实现；但是用户敲击键盘这样的事件就必须马上被响应，应该用中断实现。</li>
+<li>两者的主要区别在于：中断不能被相同类型的中断打断，而下半部依然可以被中断打断；中断对于时间非常敏感，而下半部基本上都是一些可以延迟的工作。</li>
+</ul>
+<h4 id="软中断"><a href="#软中断" class="headerlink" title="软中断"></a>软中断</h4><ul>
+<li><p>软中断作为下半部机制的代表，是随着SMP（share memory processor）的出现应运而生的，<strong>它也是tasklet实现的基础（tasklet实际上只是在软中断的基础上添加了一定的机制）</strong>。</p>
+</li>
+<li><p>软中断一般是“可延迟函数”的总称，有时候也包括了tasklet（请读者在遇到的时候根据上下文推断是否包含tasklet）。</p>
+</li>
+<li><p><strong>它的出现就是因为要满足上面所提出的上半部和下半部的区别</strong>，使得对时间不敏感的任务延后执行，而且可以在多个CPU上并行执行，使得总的系统效率可以更高。</p>
+</li>
+</ul>
+<h4 id="tasklet"><a href="#tasklet" class="headerlink" title="tasklet"></a>tasklet</h4><p>由于软中断必须使用可重入函数，这就导致设计上的复杂度变高，作为设备驱动程序的开发者来说，增加了负担。而如果某种应用并不需要在多个CPU上并行执行，那么软中断其实是没有必要的。因此诞生了弥补以上两个要求的tasklet。它具有以下特性：</p>
+<ul>
+<li>一种特定类型的tasklet只能运行在一个CPU上，不能并行，只能串行执行。</li>
+<li>多个不同类型的tasklet可以并行在多个CPU上。</li>
+<li>软中断是静态分配的，在内核编译好之后，就不能改变。但tasklet就灵活许多，可以在运行时改变（比如添加模块时）。</li>
+</ul>
+<p>tasklet是在两种软中断类型的基础上实现的，<strong>因此如果不需要软中断的并行特性，tasklet就是最好的选择。</strong>也就是说tasklet是软中断的一种特殊用法，即延迟情况下的串行执行。</p>
+<h4 id="工作队列"><a href="#工作队列" class="headerlink" title="工作队列"></a>工作队列</h4><p>工作队列(work queue)是另外一种将工作推后执行的形式。</p>
+<p>工作队列可以把工作推后，交由一个内核线程去执行—这个下半部分总是会在进程上下文执行，但由于是内核线程，其不能访问用户空间。最重要特点的就是<strong>工作队列允许重新调度甚至是睡眠</strong>。</p>
+<h3 id="tasklet输出helloworld"><a href="#tasklet输出helloworld" class="headerlink" title="tasklet输出helloworld"></a>tasklet输出helloworld</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/4-%E7%AC%AC%E5%9B%9B%E7%AB%A0/1-tasklet%E8%BE%93%E5%87%BAhelloworld.jpg"></p>
+<h3 id="周期性打印helloworld"><a href="#周期性打印helloworld" class="headerlink" title="周期性打印helloworld"></a>周期性打印helloworld</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/4-%E7%AC%AC%E5%9B%9B%E7%AB%A0/2-%E5%91%A8%E6%9C%9F%E6%80%A7%E6%89%93%E5%8D%B0helloworld.jpg"></p>
+<h4 id="捕获信号"><a href="#捕获信号" class="headerlink" title="捕获信号"></a>捕获信号</h4><img src="/hexo_blog/2022/07/07/OpenEuler/4-第四章/3-%E6%8D%95%E8%8E%B7%E4%BF%A1%E5%8F%B7.jpg" style="zoom:80%;" />
+
+<h2 id="五、内核时间管理"><a href="#五、内核时间管理" class="headerlink" title="五、内核时间管理"></a>五、内核时间管理</h2><blockquote>
+<p><strong>注意：</strong></p>
+<p>5.x版本的内核已经将do_gettimeofday()函数移除，可以通过如下方法解决。4.x版本的内核不需要更改。</p>
+<p>将do_gettimeofday()更换为ktime_get_ts64()<br>将rtc_time_to_tm()更换为rtc_time64_to_tm()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timespec64</span> &#123;</span></span><br><span class="line">   <span class="type">time64_t</span>    tv_sec;         <span class="comment">// seconds </span></span><br><span class="line">   <span class="type">long</span>        tv_nsec;        <span class="comment">// nanoseconds</span></span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="打印当前时间"><a href="#打印当前时间" class="headerlink" title="打印当前时间"></a>打印当前时间</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/5-%E7%AC%AC%E4%BA%94%E7%AB%A0/1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4.jpg"></p>
+<h3 id="定时打印helloworld"><a href="#定时打印helloworld" class="headerlink" title="定时打印helloworld"></a>定时打印helloworld</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/5-%E7%AC%AC%E4%BA%94%E7%AB%A0/2-%E5%AE%9A%E6%97%B6%E5%99%A8.jpg"></p>
+<h3 id="累加计算代码的运行时间"><a href="#累加计算代码的运行时间" class="headerlink" title="累加计算代码的运行时间"></a>累加计算代码的运行时间</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/5-%E7%AC%AC%E4%BA%94%E7%AB%A0/3-%E8%AE%A1%E7%AE%97%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.jpg"></p>
+<h2 id="六、设备管理"><a href="#六、设备管理" class="headerlink" title="六、设备管理"></a>六、设备管理</h2><h3 id="编写USB设备驱动程序"><a href="#编写USB设备驱动程序" class="headerlink" title="编写USB设备驱动程序"></a>编写USB设备驱动程序</h3><h4 id="安装usbutils"><a href="#安装usbutils" class="headerlink" title="安装usbutils"></a>安装usbutils</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/1-%E5%AE%89%E8%A3%85usbutils.jpg"></p>
+<h4 id="查看usb的设备号和厂商号"><a href="#查看usb的设备号和厂商号" class="headerlink" title="查看usb的设备号和厂商号"></a>查看usb的设备号和厂商号</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/2-%E6%9F%A5%E7%9C%8Busb%E7%9A%84%E8%AE%BE%E5%A4%87%E5%8F%B7%E5%92%8C%E5%8E%82%E5%95%86%E5%8F%B7.jpg"></p>
+<h4 id="安装usb检测模块"><a href="#安装usb检测模块" class="headerlink" title="安装usb检测模块"></a>安装usb检测模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/3-%E5%AE%89%E8%A3%85usb%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9D%97.jpg"></p>
+<h4 id="插入U盘查看模块输出"><a href="#插入U盘查看模块输出" class="headerlink" title="插入U盘查看模块输出"></a>插入U盘查看模块输出</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/4-%E6%8F%92%E5%85%A5u%E7%9B%98%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9D%97%E8%BE%93%E5%87%BA.jpg"></p>
+<h4 id="拔出U盘查看模块输出"><a href="#拔出U盘查看模块输出" class="headerlink" title="拔出U盘查看模块输出"></a>拔出U盘查看模块输出</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/5-%E6%8B%94%E5%87%BAu%E7%9B%98%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9D%97%E8%BE%93%E5%87%BA.jpg"></p>
+<h4 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/6-%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97.jpg"></p>
+<h3 id="测试硬盘读写速率"><a href="#测试硬盘读写速率" class="headerlink" title="测试硬盘读写速率"></a>测试硬盘读写速率</h3><h4 id="测试硬盘写速率"><a href="#测试硬盘写速率" class="headerlink" title="测试硬盘写速率"></a>测试硬盘写速率</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/7-%E6%B5%8B%E8%AF%95%E7%A1%AC%E7%9B%98%E5%86%99%E9%80%9F%E7%8E%87.jpg"></p>
+<h4 id="测试硬盘读速率"><a href="#测试硬盘读速率" class="headerlink" title="测试硬盘读速率"></a>测试硬盘读速率</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/8-%E6%B5%8B%E8%AF%95%E7%A1%AC%E7%9B%98%E8%AF%BB%E9%80%9F%E7%8E%87.jpg"></p>
+<h4 id="iozone测试读写速率"><a href="#iozone测试读写速率" class="headerlink" title="iozone测试读写速率"></a>iozone测试读写速率</h4><ul>
+<li><p>编译iozone</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.iozone.org/src/current/iozone3_489.tar</span><br><span class="line">tar -xvf iozone3_489.tar </span><br><span class="line">cd iozone3_489</span><br><span class="line">cd src/</span><br><span class="line">cd current/</span><br><span class="line">make linux-AMD64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看具体用法</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">./fileop -h</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">./pit_server -h</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">./iozone -h</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/9-%E7%BC%96%E8%AF%91iozone.jpg"></p>
+</li>
+<li><p>测试读写速率</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./iozone -Raz -n 512m -g 8g -r 1k -i 0 -i 1 -b /home/iozone.xls</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/10-iozone%E6%B5%8B%E8%AF%95%E4%B8%AD.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/6-%E7%AC%AC%E5%85%AD%E7%AB%A0/11-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.jpg"></p>
+</li>
+</ul>
+<h2 id="七、文件系统"><a href="#七、文件系统" class="headerlink" title="七、文件系统"></a>七、文件系统</h2><blockquote>
+<p><strong>文件扩展属性介绍</strong></p>
+<p>扩展属性名称的格式是namespace.attribute，名称空间namespace是用来定义不同的扩展属性的类。目前有security，system，trusted，user四种扩展属性类。</p>
+<p>扩展的用户属性被分配给文件和目录用来存储任意的附加信息，比如mime type、字符集或是文件的编码。用户属性的权限由文件权限位来定义。对于普通文件和目录，文件权限位定义文件内容的访问，对于设备文件来说，它们定义对设备的访问。扩展的用户属性只被用于普通的文件和目录，对用户属性的访问被限定于属主和那些对目录有sticky位设置的用户。</p>
+</blockquote>
+<h3 id="为Ext4文件系统添加扩展属性"><a href="#为Ext4文件系统添加扩展属性" class="headerlink" title="为Ext4文件系统添加扩展属性"></a>为Ext4文件系统添加扩展属性</h3><h4 id="查看是否支持扩展属性"><a href="#查看是否支持扩展属性" class="headerlink" title="查看是否支持扩展属性"></a>查看是否支持扩展属性</h4><img src="/hexo_blog/2022/07/07/OpenEuler/7-第七章/1-%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7.jpg" style="zoom:67%;" />
+
+<h4 id="设置文本属性值"><a href="#设置文本属性值" class="headerlink" title="设置文本属性值"></a>设置文本属性值</h4><img src="/hexo_blog/2022/07/07/OpenEuler/7-第七章/2-%E8%AE%BE%E7%BD%AE%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E5%80%BC.jpg" style="zoom:80%;" />
+
+<h4 id="设置十六进制属性值和base64编码"><a href="#设置十六进制属性值和base64编码" class="headerlink" title="设置十六进制属性值和base64编码"></a>设置十六进制属性值和base64编码</h4><img src="/hexo_blog/2022/07/07/OpenEuler/7-第七章/3-%E8%AE%BE%E7%BD%AE%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%B1%9E%E6%80%A7%E5%80%BC%E5%92%8Cbase64%E7%BC%96%E7%A0%81.jpg" style="zoom:67%;" />
+
+<h4 id="text编码设置"><a href="#text编码设置" class="headerlink" title="text编码设置"></a>text编码设置</h4><img src="/hexo_blog/2022/07/07/OpenEuler/7-第七章/4-text%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE.jpg" style="zoom:67%;" />
+
+<h4 id="hex编码和base64编码"><a href="#hex编码和base64编码" class="headerlink" title="hex编码和base64编码"></a>hex编码和base64编码</h4><img src="/hexo_blog/2022/07/07/OpenEuler/7-第七章/5-hex%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81.jpg" style="zoom:80%;" />
+
+<h3 id="注册自定义文件系统类型"><a href="#注册自定义文件系统类型" class="headerlink" title="注册自定义文件系统类型"></a>注册自定义文件系统类型</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/7-%E7%AC%AC%E4%B8%83%E7%AB%A0/6-%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B.jpg"></p>
+<h3 id="在-x2F-proc下创建目录"><a href="#在-x2F-proc下创建目录" class="headerlink" title="在&#x2F;proc下创建目录"></a>在&#x2F;proc下创建目录</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/7-%E7%AC%AC%E4%B8%83%E7%AB%A0/7-proc%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95.jpg"></p>
+<h3 id="使用sysfs文件系统传递内核模块参数"><a href="#使用sysfs文件系统传递内核模块参数" class="headerlink" title="使用sysfs文件系统传递内核模块参数"></a>使用sysfs文件系统传递内核模块参数</h3><h4 id="x2F-sys-sysfs文件系统"><a href="#x2F-sys-sysfs文件系统" class="headerlink" title="&#x2F;sys - sysfs文件系统"></a>&#x2F;sys - sysfs文件系统</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><p>内核子系统或设备驱动可以直接编译到内核，也可以编译成模块。如果编译到内核，可以通过内核启动参数来向它们传递参数；如果编译成模块，则可以通过命令行在插入模块时传递参数，或者在运行时，<strong>通过sysfs来设置或读取模块数据。</strong></p>
+<p><strong>sysfs是一个基于内存的虚拟文件系统</strong>，可以看成与proc、devfs和devpty同类别的文件系统；<strong>它的作用是将内核信息以文件的方式提供给用户程序使用。</strong>sysfs 文件系统要求总是被挂载在 &#x2F;sys 挂载点上，这个文件系统不仅可以把设备（devices）和驱动程序（drivers）的信息从内核输出到用户空间，也可以用来对设备和驱动程序做设置。</p>
+<p>sysfs提供一种机制，使得可以显式地描述内核对象、对象属性及对象间关系。sysfs有两组接口，一组针对内核，用于将设备映射到文件系统中；另一组针对用户程序，用于读取或操作这些设备。下表述了内核中的sysfs要素及其在用户空间的表现：</p>
+<table>
+<thead>
+<tr>
+<th align="center">sysfs在内核中的组成要素</th>
+<th align="center">在用户空间的显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">内核对象（kobject）</td>
+<td align="center">目录</td>
+</tr>
+<tr>
+<td align="center">对象属性（attribute）</td>
+<td align="center">文件</td>
+</tr>
+<tr>
+<td align="center">对象关系（relationship）</td>
+<td align="center">链接（Symbolic Link）</td>
+</tr>
+</tbody></table>
+<h5 id="sysfs-与-sysctl区别"><a href="#sysfs-与-sysctl区别" class="headerlink" title="sysfs 与 sysctl区别"></a>sysfs 与 sysctl区别</h5><ul>
+<li>sysctl：是内核的一些控制参数，其目的是方便用户对内核的行为进行控制；</li>
+<li>sysfs：仅仅是把内核的 kobject 对象的层次关系与属性开放给用户查看，因此 sysfs 的绝大部分是只读的，模块作为一个 kobject 也被出口到 sysfs，模块参数则是作为模块属性出口的，内核实现者为模块的使用提供了更灵活的方式，允许用户设置模块参数在 sysfs 的可见性并允许用户在编写模块时设置这些参数在 sysfs 下的访问权限，然后用户就可以通过sysfs 来查看和设置模块参数，从而使得用户能在模块运行时控制模块行为。</li>
+</ul>
+<h4 id="编译与装载sysfs-exam模块"><a href="#编译与装载sysfs-exam模块" class="headerlink" title="编译与装载sysfs_exam模块"></a>编译与装载sysfs_exam模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/7-%E7%AC%AC%E4%B8%83%E7%AB%A0/8-%E7%BC%96%E8%AF%91%E4%B8%8E%E8%A3%85%E8%BD%BDsysfs_exam%E6%A8%A1%E5%9D%97.jpg"></p>
+<h4 id="修改模块参数和卸载模块"><a href="#修改模块参数和卸载模块" class="headerlink" title="修改模块参数和卸载模块"></a>修改模块参数和卸载模块</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/7-%E7%AC%AC%E4%B8%83%E7%AB%A0/9-%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97.jpg"></p>
+<h2 id="八、网络管理"><a href="#八、网络管理" class="headerlink" title="八、网络管理"></a>八、网络管理</h2><h3 id="基于socket的udp发送接收程序"><a href="#基于socket的udp发送接收程序" class="headerlink" title="基于socket的udp发送接收程序"></a>基于socket的udp发送接收程序</h3><h4 id="编译udp-socket并发送数据"><a href="#编译udp-socket并发送数据" class="headerlink" title="编译udp_socket并发送数据"></a>编译udp_socket并发送数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/1-%E7%BC%96%E8%AF%91udp_socket%E5%B9%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg"></p>
+<h4 id="启动服务端并接收数据"><a href="#启动服务端并接收数据" class="headerlink" title="启动服务端并接收数据"></a>启动服务端并接收数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/2-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE.jpg"></p>
+<h3 id="tshark抓包"><a href="#tshark抓包" class="headerlink" title="tshark抓包"></a>tshark抓包</h3><h4 id="安装WireShark"><a href="#安装WireShark" class="headerlink" title="安装WireShark"></a>安装WireShark</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/3-%E5%AE%89%E8%A3%85wireshark.jpg"></p>
+<h4 id="client发送数据"><a href="#client发送数据" class="headerlink" title="client发送数据"></a>client发送数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/4-client%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg"></p>
+<h4 id="server接收数据"><a href="#server接收数据" class="headerlink" title="server接收数据"></a>server接收数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/5-server%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE.jpg"></p>
+<h4 id="tshark抓取数据"><a href="#tshark抓取数据" class="headerlink" title="tshark抓取数据"></a>tshark抓取数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/6-tshark%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE.jpg"></p>
+<h3 id="使用-setsockopt-发送记录路由选项"><a href="#使用-setsockopt-发送记录路由选项" class="headerlink" title="使用 setsockopt 发送记录路由选项"></a>使用 setsockopt 发送记录路由选项</h3><h4 id="发送三次数据"><a href="#发送三次数据" class="headerlink" title="发送三次数据"></a>发送三次数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/7-%E5%8F%91%E9%80%81%E4%B8%89%E6%AC%A1%E6%95%B0%E6%8D%AE.jpg"></p>
+<h4 id="接收到三次数据"><a href="#接收到三次数据" class="headerlink" title="接收到三次数据"></a>接收到三次数据</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/8-%E6%8E%A5%E6%94%B6%E5%88%B0%E4%B8%89%E6%AC%A1%E6%95%B0%E6%8D%AE.jpg"></p>
+<h4 id="输出记录到xml文件"><a href="#输出记录到xml文件" class="headerlink" title="输出记录到xml文件"></a>输出记录到xml文件</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/9-%E8%BE%93%E5%87%BA%E8%AE%B0%E5%BD%95%E5%88%B0xml%E6%96%87%E4%BB%B6.jpg"></p>
+<h4 id="查看记录"><a href="#查看记录" class="headerlink" title="查看记录"></a>查看记录</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/8-%E7%AC%AC%E5%85%AB%E7%AB%A0/10-setsockopt-xml%E6%96%87%E4%BB%B6.jpg"></p>
+<h2 id="九、内核虚拟化"><a href="#九、内核虚拟化" class="headerlink" title="九、内核虚拟化"></a>九、内核虚拟化</h2><h3 id="搭建OpenEuler系统的虚拟机"><a href="#搭建OpenEuler系统的虚拟机" class="headerlink" title="搭建OpenEuler系统的虚拟机"></a>搭建OpenEuler系统的虚拟机</h3><blockquote>
+<p>经过亲自实验，在本地VMware安装的OpenEuler操作系统内可以完成本实验，主要需要注意以下几点：</p>
+<ul>
+<li>OpenEuler版本最好选择20.03(LTS)，即内核版本要为4.x</li>
+<li>编译内核时，需要勾选虚拟化的支持，具体操作见：一、操作系统安装与内核编译</li>
+<li>配置虚拟机的xml文件，需要结合官方文档和实验指导书两方面的示例</li>
+<li>生成虚拟机的镜像时，经过实验发现不能按照官方文档里面只分配4G，至少分个6G比较合适</li>
+</ul>
+</blockquote>
+<h4 id="安装qemu"><a href="#安装qemu" class="headerlink" title="安装qemu"></a>安装qemu</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/1-%E5%AE%89%E8%A3%85qemu.jpg"></p>
+<h4 id="安装libvirt"><a href="#安装libvirt" class="headerlink" title="安装libvirt"></a>安装libvirt</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/2-%E5%AE%89%E8%A3%85libvirt.jpg"></p>
+<h4 id="查看内核是否支持虚拟化"><a href="#查看内核是否支持虚拟化" class="headerlink" title="查看内核是否支持虚拟化"></a>查看内核是否支持虚拟化</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/3-%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E8%99%9A%E6%8B%9F%E5%8C%96.jpg"></p>
+<h4 id="查看qemu是否安装成功"><a href="#查看qemu是否安装成功" class="headerlink" title="查看qemu是否安装成功"></a>查看qemu是否安装成功</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/4-%E6%9F%A5%E7%9C%8Bqemu%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.jpg"></p>
+<h4 id="查看libvirt是否安装成功"><a href="#查看libvirt是否安装成功" class="headerlink" title="查看libvirt是否安装成功"></a>查看libvirt是否安装成功</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/5-%E6%9F%A5%E7%9C%8Blibvirt%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.jpg"></p>
+<h4 id="启动libvirtd服务"><a href="#启动libvirtd服务" class="headerlink" title="启动libvirtd服务"></a>启动libvirtd服务</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/6-%E5%90%AF%E5%8A%A8libvirtd%E6%9C%8D%E5%8A%A1.jpg"></p>
+<h4 id="查看网络配置"><a href="#查看网络配置" class="headerlink" title="查看网络配置"></a>查看网络配置</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/7-%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE.jpg" style="zoom:80%;" />
+
+<h4 id="安装引导固件"><a href="#安装引导固件" class="headerlink" title="安装引导固件"></a>安装引导固件</h4><blockquote>
+<p>因为实验指导书中只给了aarch64架构的安装方法，而VMware中的cpu是x86_64架构的</p>
+<p>查看官方文档可以找到解决办法，运行下面的命令即可</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y edk2-ovmf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/8-%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E5%9B%BA%E4%BB%B6.jpg"></p>
+<h4 id="准备虚拟机镜像"><a href="#准备虚拟机镜像" class="headerlink" title="准备虚拟机镜像"></a>准备虚拟机镜像</h4><blockquote>
+<p>之前按照官方文档创建的镜像，直接给了4G</p>
+<p>后续安装操作系统进行分区时，要求不少于5.xxG(具体记不得了)，所以这里<strong>最少得6G</strong></p>
+</blockquote>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/10%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%95%9C%E5%83%8F.jpg"></p>
+<h4 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/14-%E6%88%90%E5%8A%9F%E5%AE%9A%E4%B9%89%E8%99%9A%E6%8B%9F%E6%9C%BA.jpg" style="zoom:80%;" />
+
+<h4 id="运行虚拟机"><a href="#运行虚拟机" class="headerlink" title="运行虚拟机"></a>运行虚拟机</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/15-%E8%BF%90%E8%A1%8C%E8%99%9A%E6%8B%9F%E6%9C%BA.jpg" style="zoom: 67%;" />
+
+<h4 id="安装tigervnc"><a href="#安装tigervnc" class="headerlink" title="安装tigervnc"></a>安装tigervnc</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/16-%E5%AE%89%E8%A3%85tigervnc.jpg"></p>
+<h4 id="查看网络信息"><a href="#查看网络信息" class="headerlink" title="查看网络信息"></a>查看网络信息</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/17-%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF.jpg" style="zoom:80%;" />
+
+<h4 id="填写VNC-Server地址"><a href="#填写VNC-Server地址" class="headerlink" title="填写VNC-Server地址"></a>填写VNC-Server地址</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/18-%E5%A1%AB%E5%86%99VNCServer%E5%9C%B0%E5%9D%80.jpg" style="zoom:80%;" />
+
+<h4 id="输入密码"><a href="#输入密码" class="headerlink" title="输入密码"></a>输入密码</h4><blockquote>
+<p>官方文档给的配置中没有配置密码，需要添加下面的passwd属性</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">graphics</span> <span class="attr">type</span>=<span class="string">&#x27;vnc&#x27;</span> <span class="attr">port</span>=<span class="string">&#x27;-1&#x27;</span> <span class="attr">autoport</span>=<span class="string">&#x27;yes&#x27;</span> <span class="attr">listen</span>=<span class="string">&#x27;0.0.0.0&#x27;</span> <span class="attr">passwd</span>=<span class="string">&#x27;123456&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listen</span> <span class="attr">type</span>=<span class="string">&#x27;address&#x27;</span> <span class="attr">address</span>=<span class="string">&#x27;0.0.0.0&#x27;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">graphics</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/19-%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81.jpg"></p>
+<h4 id="连接报错"><a href="#连接报错" class="headerlink" title="连接报错"></a>连接报错</h4><blockquote>
+<p>这里报错是因为，前面的虚拟机配置文件是直接复制的官方文档的配置，而官方文档给的配置中没有可以引导的disk</p>
+<p>所以还需要添加下面的配置</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">disk</span> <span class="attr">type</span>=<span class="string">&#x27;file&#x27;</span> <span class="attr">device</span>=<span class="string">&#x27;cdrom&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driver</span> <span class="attr">name</span>=<span class="string">&#x27;qemu&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;raw&#x27;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">file</span>=<span class="string">&#x27;/root/vm_openEuler/openEuler-20.03-LTS-aarch64-dvd.iso&#x27;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">readonly</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">dev</span>=<span class="string">&#x27;sdb&#x27;</span> <span class="attr">bus</span>=<span class="string">&#x27;scsi&#x27;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">boot</span> <span class="attr">order</span>=<span class="string">&#x27;2&#x27;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">disk</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/20-%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99.jpg" style="zoom:50%;" />
+
+<h4 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h4><img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/21-%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA.jpg" style="zoom:50%;" />
+
+<img src="/hexo_blog/2022/07/07/OpenEuler/9-第九章/22-2安装界面.jpg" style="zoom: 50%;" />
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/22-3%E5%AE%89%E8%A3%85%E4%B8%AD.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/22-4%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90.jpg"></p>
+<h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/23-%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F.jpg"></p>
+<h4 id="关闭虚拟机"><a href="#关闭虚拟机" class="headerlink" title="关闭虚拟机"></a>关闭虚拟机</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/9-%E7%AC%AC%E4%B9%9D%E7%AB%A0/24-%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA.jpg"></p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><h4 id="docker架构图"><a href="#docker架构图" class="headerlink" title="docker架构图"></a>docker架构图</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg"></p>
+<h4 id="容器的生命周期"><a href="#容器的生命周期" class="headerlink" title="容器的生命周期"></a>容器的生命周期</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE.jpg"></p>
+<h4 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/1-%E5%AE%89%E8%A3%85docker.jpg"></p>
+<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/2-%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.jpg"></p>
+<h4 id="新建容器并启动"><a href="#新建容器并启动" class="headerlink" title="新建容器并启动"></a>新建容器并启动</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/3-%E6%96%B0%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E5%90%AF%E5%8A%A8.jpg"></p>
+<h4 id="创建容器并后台运行"><a href="#创建容器并后台运行" class="headerlink" title="创建容器并后台运行"></a>创建容器并后台运行</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/4-%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.jpg"></p>
+<h4 id="容器的终止与删除"><a href="#容器的终止与删除" class="headerlink" title="容器的终止与删除"></a>容器的终止与删除</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/5-%E5%AE%B9%E5%99%A8%E7%9A%84%E7%BB%88%E6%AD%A2%E4%B8%8E%E5%88%A0%E9%99%A4.jpg"></p>
+<h4 id="创建镜像并验证可用性"><a href="#创建镜像并验证可用性" class="headerlink" title="创建镜像并验证可用性"></a>创建镜像并验证可用性</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/docker/6-%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F%E5%B9%B6%E9%AA%8C%E8%AF%81%E5%8F%AF%E7%94%A8%E6%80%A7.jpg"></p>
+<h2 id="iSula容器引擎"><a href="#iSula容器引擎" class="headerlink" title="iSula容器引擎"></a>iSula容器引擎</h2><blockquote>
+<p>iSula通用容器引擎相比Docker，是一种新的容器解决方案，提供统一的架构设计来满足CT和IT领域的不同需求。相比Golang编写的Docker，轻量级容器使用C&#x2F;C++实现，具有轻、灵、巧、快的特点，不受硬件规格和架构的限制，底噪开销更小，可应用领域更为广泛。</p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/zh-cn_image_0183048952.png" alt="img"></p>
+</blockquote>
+<h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a><a target="_blank" rel="noopener" href="https://docs.openeuler.org/zh/docs/20.03_LTS/docs/Container/%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.html">安装与配置</a></h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y iSulad</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/iSula/2-%E5%AE%89%E8%A3%85iSulad.jpg"></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li><p>配置镜像仓库地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isulad --registry-mirrors &quot;https://nwxzkbs8.mirror.aliyuncs.com&quot;</span><br><span class="line">isulad --insecure-registry &quot;https://nwxzkbs8.mirror.aliyuncs.com&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><ul>
+<li><p>若为相同大版本之间的升级，例如从2.x.x版本升级到2.x.x版本，请执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update -y iSulad</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若为不同大版本之间的升级，例如从1.x.x版本升级到2.x.x版本，请先保存当前的配置文件<code>/etc/isulad/daemon.json</code>，并卸载已安装的iSulad软件包，然后安装待升级的iSulad软件包，随后恢复配置文件。</p>
+</li>
+</ul>
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><ul>
+<li><p>卸载iSulad及其依赖软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove iSulad</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>镜像、容器、volumes以及相关配置文件不会自动删除，需要手动删除。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/iSulad</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="镜像管理"><a href="#镜像管理" class="headerlink" title="镜像管理"></a><a target="_blank" rel="noopener" href="https://docs.openeuler.org/zh/docs/20.03_LTS/docs/Container/%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86.html">镜像管理</a></h3><h4 id="拉取镜像-1"><a href="#拉取镜像-1" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula pull ubuntu:14.04</span><br></pre></td></tr></table></figure>
+
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/iSula/4-%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.jpg"></p>
+<h4 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula images</span><br></pre></td></tr></table></figure>
+
+<h3 id="容器管理"><a href="#容器管理" class="headerlink" title="容器管理"></a><a target="_blank" rel="noopener" href="https://docs.openeuler.org/zh/docs/20.03_LTS/docs/Container/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86.html">容器管理</a></h3><h4 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula create ubuntu:14.04</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询所有容器"><a href="#查询所有容器" class="headerlink" title="查询所有容器"></a>查询所有容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula ps -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula start container_name</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula run -d ubuntu:14.04 /bin/sh -c &quot;while true;do echo hello world; sleep 1; done&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula rm container_ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="接入容器"><a href="#接入容器" class="headerlink" title="接入容器"></a>接入容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isula attach container_ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="综合实验结果"><a href="#综合实验结果" class="headerlink" title="综合实验结果"></a>综合实验结果</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/iSula/5-%E5%88%9B%E5%BB%BA-%E6%9F%A5%E7%9C%8B-%E5%88%A0%E9%99%A4-%E6%8E%A5%E5%85%A5%E5%AE%B9%E5%99%A8.jpg"></p>
+<h3 id="CNI网络"><a href="#CNI网络" class="headerlink" title="CNI网络"></a>CNI网络</h3><blockquote>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhonglinzhang/article/details/82697524">【kubernetes&#x2F;k8s概念】CNI详解</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liukuan73/article/details/78883847">kubernetes cni网络详解</a></p>
+</blockquote>
+<h4 id="CNI的由来"><a href="#CNI的由来" class="headerlink" title="CNI的由来"></a>CNI的由来</h4><p>CNI是Container Network Interface的是一个标准的，通用的接口。现在容器平台：docker，kubernetes，mesos，容器网络解决方案：flannel，calico，weave。<strong>只要提供一个标准的接口，就能为同样满足该协议的所有容器平台提供网络功能，而CNI正是这样的一个标准接口协议。</strong></p>
+<p>一直以来，kubernetes 并没有专门的网络模块负责网络配置，它需要用户在主机上已经配置好网络。<br>kubernetes 对网络的要求是：</p>
+<ul>
+<li>容器之间（包括同一台主机上的容器，和不同主机的容器）可以互相通信</li>
+<li>容器和集群中所有的节点也能直接通信</li>
+</ul>
+<p><strong>kubernetes 网络的发展方向是希望通过插件的方式来集成不同的网络方案， CNI 就是这一努力的结果。</strong>CNI只专注解决容器网络连接和容器销毁时的资源释放，提供一套框架，所以CNI可以支持大量不同的网络模式，并且容易实现。</p>
+<h4 id="什么是CNI"><a href="#什么是CNI" class="headerlink" title="什么是CNI"></a>什么是CNI</h4><p>   <strong>CNI用于连接容器管理系统和网络插件</strong>。提供一个容器所在的network namespace，将network interface插入该network namespace中（比如veth的一端），并且在宿主机做一些必要的配置（例如将veth的另一端加入bridge中），最后对namespace中的interface进行IP和路由的配置。</p>
+<p>  CNI的工作是从容器管理系统处获取运行时信息，包括<strong>network namespace的路径，容器ID以及network interface</strong> name，再从容器网络的配置文件中加载网络配置信息，再将这些信息传递给对应的插件，由插件进行具体的网络配置工作，并将配置的结果再返回到容器管理系统中。</p>
+<h2 id="A-Tune"><a href="#A-Tune" class="headerlink" title="A-Tune"></a>A-Tune</h2><h3 id="安装与配置-1"><a href="#安装与配置-1" class="headerlink" title="安装与配置"></a>安装与配置</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p><img src="/hexo_blog/2022/07/07/OpenEuler/Atune/1-%E5%AE%89%E8%A3%85atune.jpg"></p>
+<p><img src="/hexo_blog/2022/07/07/OpenEuler/Atune/2-%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F.jpg"></p>
+<h3 id="启动Atune"><a href="#启动Atune" class="headerlink" title="启动Atune"></a>启动Atune</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/Atune/3-%E5%90%AF%E5%8A%A8atune.jpg"></p>
+<h3 id="查看负载类型"><a href="#查看负载类型" class="headerlink" title="查看负载类型"></a>查看负载类型</h3><p><img src="/hexo_blog/2022/07/07/OpenEuler/Atune/4-%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E7%B1%BB%E5%9E%8B.jpg"></p>
+<hr>
+<p>因为当时服务器买的是<strong>按需付费</strong>的，然后买的配置还挺好的，结果现在200块钱的优惠卷用完了，还<strong>欠费</strong>了3块钱:grimacing:。又因为A-Tune依赖于鲲鹏处理器，本地也做不了了。所以只能做到这里了:sob:</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DFNJKD98</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/OpenEuler/">https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/OpenEuler/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dfnjkd98.gitee.io/hexo_blog" target="_blank">DFNJKD98文档记录</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo_blog/2022/07/07/Python%E5%8C%85%E5%8F%8A%E5%85%B6%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%95%E7%94%A8%E8%AF%A6%E8%A7%A3/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python包及其定义和引用详解</div></div></a></div><div class="next-post pull-right"><a href="/hexo_blog/2022/07/07/Nodejs%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Nodejs学习记录</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/hexo_blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DFNJKD98</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">初次使用Hexo部署博客,更多内容还在迁移中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#index"><span class="toc-number">1.</span> <span class="toc-text">OpenEuler 实验记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91"><span class="toc-number">1.1.</span> <span class="toc-text">一、操作系统安装与内核编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85OpenEuler"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装OpenEuler</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">连接网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">配置静态IP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEXshell"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">配置Xshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">更换软件源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="toc-number">1.1.2.</span> <span class="toc-text">编译内核源码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E5%B9%B6%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">下载内核源码并解压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">生成内核配置文件.config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%BC%96%E8%AF%91%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">更改编译配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E4%BE%9D%E8%B5%96"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">安装一些依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%EF%BC%8C%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%AE%89%E8%A3%85%E5%86%85%E6%A0%B8"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">编译，安装模块，安装内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%BC%95%E5%AF%BC"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">更新引导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%8F%AF%E7%94%A8%E5%86%85%E6%A0%B8"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">查看所有可用内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E5%86%85%E6%A0%B8"><span class="toc-number">1.1.2.8.</span> <span class="toc-text">查看当前默认启动内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E5%86%85%E6%A0%B8"><span class="toc-number">1.1.2.9.</span> <span class="toc-text">修改默认启动内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#x2F-boot%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.2.10.</span> <span class="toc-text">&#x2F;boot目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">系统启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CentOS6-x%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">CentOS6.x启动流程：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BIOS%E5%BC%80%E6%9C%BA%E8%87%AA%E6%A3%80"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">BIOS开机自检</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%BC%95%E5%AF%BC%E7%9B%AE%E5%BD%95%EF%BC%88MBR%EF%BC%89%E7%BB%93%E6%9E%84%E5%8F%8A%E4%BD%9C%E7%94%A8%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">主引导目录（MBR）结构及作用详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">启动引导程序的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">加载内核模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initramfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">initramfs文件系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E7%BC%96%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">内核模块编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99helloworld%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">编写helloworld模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99Makefile%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">编写Makefile文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">编译模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">加载与卸载模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">二、内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kmalloc"><span class="toc-number">1.2.1.</span> <span class="toc-text">kmalloc</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">编写源文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99Makefile%E6%96%87%E4%BB%B6-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">编写Makefile文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">加载模块与卸载模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vmalloc"><span class="toc-number">1.2.2.</span> <span class="toc-text">vmalloc</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%BA%90%E6%96%87%E4%BB%B6-1"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">编写源文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99Makefile%E6%96%87%E4%BB%B6-2"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">编写Makefile文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97-1"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">加载模块与卸载模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%94%E8%AE%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">研讨</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">内存泄漏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">内存溢出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E8%B6%8A%E7%95%8C"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">内存越界</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">三、进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">内核线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">运行结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E8%BE%93%E5%87%BACPU%E8%B4%9F%E8%BD%BD%E6%83%85%E5%86%B5"><span class="toc-number">1.3.2.</span> <span class="toc-text">打印输出CPU负载情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#x2F-proc%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">&#x2F;proc目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-1"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">运行结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E8%BE%93%E5%87%BA%E8%BF%90%E8%A1%8C%E8%BF%9B%E7%A8%8B%E7%9A%84PID%E5%92%8C%E5%90%8D%E5%AD%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">打印输出运行进程的PID和名字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-2"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">运行结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgroups"><span class="toc-number">1.3.4.</span> <span class="toc-text">cgroups</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cgroups%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">cgroups介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cgroups%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">cgroups相关概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">组件之间的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tmpfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">tmpfs文件系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgroup%E9%99%90%E5%88%B6cpu%E6%A0%B8%E6%95%B0"><span class="toc-number">1.3.5.</span> <span class="toc-text">cgroup限制cpu核数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85libcgroup"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">安装libcgroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BDtmpfs%E6%A0%BC%E5%BC%8F%E7%9A%84cgroup%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">挂载tmpfs格式的cgroup文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BDcpuset%E7%AE%A1%E7%90%86%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">挂载cpuset管理子系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%90%E5%88%B6%E4%BD%BF%E7%94%A8cpu%E7%9A%84%E6%A0%B8%E6%95%B0"><span class="toc-number">1.3.5.4.</span> <span class="toc-text">限制使用cpu的核数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cwhile-long"><span class="toc-number">1.3.5.5.</span> <span class="toc-text">编译运行while_long</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bwhile-long%E7%9A%84%E8%BF%90%E8%A1%8C%E6%83%85%E5%86%B5"><span class="toc-number">1.3.5.6.</span> <span class="toc-text">查看while_long的运行情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgroup%E7%A6%81%E6%AD%A2%E8%AE%BF%E9%97%AEU%E7%9B%98"><span class="toc-number">1.3.6.</span> <span class="toc-text">cgroup禁止访问U盘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BU%E7%9B%98%E7%9B%98%E7%AC%A6"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">查看U盘盘符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E5%8F%B7"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">获取设备号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BDU%E7%9B%98%E5%88%B0%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.3.6.3.</span> <span class="toc-text">挂载U盘到当前系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86devices%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.3.6.4.</span> <span class="toc-text">挂载设备管理devices子系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAcgroup%E5%89%8D%E5%90%8E%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.6.5.</span> <span class="toc-text">创建cgroup前后对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AEU%E7%9B%98"><span class="toc-number">1.3.6.6.</span> <span class="toc-text">测试访问U盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BB%88%E7%AB%AF%E5%92%8C%E5%BC%82%E5%B8%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">四、终端和异常管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD%E3%80%81tasklet%E3%80%81%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97%E5%92%8C%E8%BF%9B%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.4.1.</span> <span class="toc-text">软中断、tasklet、工作队列和进程上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E5%8D%8A%E9%83%A8%E5%92%8C%E4%B8%8B%E5%8D%8A%E9%83%A8"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">上半部和下半部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">软中断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tasklet"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">tasklet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">工作队列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tasklet%E8%BE%93%E5%87%BAhelloworld"><span class="toc-number">1.4.2.</span> <span class="toc-text">tasklet输出helloworld</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%A8%E6%9C%9F%E6%80%A7%E6%89%93%E5%8D%B0helloworld"><span class="toc-number">1.4.3.</span> <span class="toc-text">周期性打印helloworld</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">捕获信号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%86%85%E6%A0%B8%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">五、内核时间管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">1.5.1.</span> <span class="toc-text">打印当前时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E6%89%93%E5%8D%B0helloworld"><span class="toc-number">1.5.2.</span> <span class="toc-text">定时打印helloworld</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%AF%E5%8A%A0%E8%AE%A1%E7%AE%97%E4%BB%A3%E7%A0%81%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="toc-number">1.5.3.</span> <span class="toc-text">累加计算代码的运行时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-number">1.6.</span> <span class="toc-text">六、设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99USB%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.6.1.</span> <span class="toc-text">编写USB设备驱动程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85usbutils"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">安装usbutils</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Busb%E7%9A%84%E8%AE%BE%E5%A4%87%E5%8F%B7%E5%92%8C%E5%8E%82%E5%95%86%E5%8F%B7"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">查看usb的设备号和厂商号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85usb%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9D%97"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">安装usb检测模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5U%E7%9B%98%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9D%97%E8%BE%93%E5%87%BA"><span class="toc-number">1.6.1.4.</span> <span class="toc-text">插入U盘查看模块输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%94%E5%87%BAU%E7%9B%98%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9D%97%E8%BE%93%E5%87%BA"><span class="toc-number">1.6.1.5.</span> <span class="toc-text">拔出U盘查看模块输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">1.6.1.6.</span> <span class="toc-text">卸载模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%A1%AC%E7%9B%98%E8%AF%BB%E5%86%99%E9%80%9F%E7%8E%87"><span class="toc-number">1.6.2.</span> <span class="toc-text">测试硬盘读写速率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%A1%AC%E7%9B%98%E5%86%99%E9%80%9F%E7%8E%87"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">测试硬盘写速率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%A1%AC%E7%9B%98%E8%AF%BB%E9%80%9F%E7%8E%87"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">测试硬盘读速率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iozone%E6%B5%8B%E8%AF%95%E8%AF%BB%E5%86%99%E9%80%9F%E7%8E%87"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">iozone测试读写速率</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.7.</span> <span class="toc-text">七、文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BAExt4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%B7%BB%E5%8A%A0%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.1.</span> <span class="toc-text">为Ext4文件系统添加扩展属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">查看是否支持扩展属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">设置文本属性值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%B1%9E%E6%80%A7%E5%80%BC%E5%92%8Cbase64%E7%BC%96%E7%A0%81"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">设置十六进制属性值和base64编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#text%E7%BC%96%E7%A0%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">text编码设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hex%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81"><span class="toc-number">1.7.1.5.</span> <span class="toc-text">hex编码和base64编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.7.2.</span> <span class="toc-text">注册自定义文件系统类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-x2F-proc%E4%B8%8B%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-number">1.7.3.</span> <span class="toc-text">在&#x2F;proc下创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8sysfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%BC%A0%E9%80%92%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E5%8F%82%E6%95%B0"><span class="toc-number">1.7.4.</span> <span class="toc-text">使用sysfs文件系统传递内核模块参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#x2F-sys-sysfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.7.4.1.</span> <span class="toc-text">&#x2F;sys - sysfs文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.7.4.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sysfs-%E4%B8%8E-sysctl%E5%8C%BA%E5%88%AB"><span class="toc-number">1.7.4.1.2.</span> <span class="toc-text">sysfs 与 sysctl区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%B8%8E%E8%A3%85%E8%BD%BDsysfs-exam%E6%A8%A1%E5%9D%97"><span class="toc-number">1.7.4.2.</span> <span class="toc-text">编译与装载sysfs_exam模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%8D%B8%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">1.7.4.3.</span> <span class="toc-text">修改模块参数和卸载模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">八、网络管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Esocket%E7%9A%84udp%E5%8F%91%E9%80%81%E6%8E%A5%E6%94%B6%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.8.1.</span> <span class="toc-text">基于socket的udp发送接收程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91udp-socket%E5%B9%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.1.1.</span> <span class="toc-text">编译udp_socket并发送数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.1.2.</span> <span class="toc-text">启动服务端并接收数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tshark%E6%8A%93%E5%8C%85"><span class="toc-number">1.8.2.</span> <span class="toc-text">tshark抓包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85WireShark"><span class="toc-number">1.8.2.1.</span> <span class="toc-text">安装WireShark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.2.2.</span> <span class="toc-text">client发送数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#server%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.2.3.</span> <span class="toc-text">server接收数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tshark%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.2.4.</span> <span class="toc-text">tshark抓取数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-setsockopt-%E5%8F%91%E9%80%81%E8%AE%B0%E5%BD%95%E8%B7%AF%E7%94%B1%E9%80%89%E9%A1%B9"><span class="toc-number">1.8.3.</span> <span class="toc-text">使用 setsockopt 发送记录路由选项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E4%B8%89%E6%AC%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">发送三次数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E5%88%B0%E4%B8%89%E6%AC%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.3.2.</span> <span class="toc-text">接收到三次数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E8%AE%B0%E5%BD%95%E5%88%B0xml%E6%96%87%E4%BB%B6"><span class="toc-number">1.8.3.3.</span> <span class="toc-text">输出记录到xml文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%B0%E5%BD%95"><span class="toc-number">1.8.3.4.</span> <span class="toc-text">查看记录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%86%85%E6%A0%B8%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">1.9.</span> <span class="toc-text">九、内核虚拟化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAOpenEuler%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.</span> <span class="toc-text">搭建OpenEuler系统的虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85qemu"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">安装qemu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85libvirt"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">安装libvirt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">1.9.1.3.</span> <span class="toc-text">查看内核是否支持虚拟化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bqemu%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.9.1.4.</span> <span class="toc-text">查看qemu是否安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Blibvirt%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.9.1.5.</span> <span class="toc-text">查看libvirt是否安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8libvirtd%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.9.1.6.</span> <span class="toc-text">启动libvirtd服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.9.1.7.</span> <span class="toc-text">查看网络配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E5%9B%BA%E4%BB%B6"><span class="toc-number">1.9.1.8.</span> <span class="toc-text">安装引导固件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%95%9C%E5%83%8F"><span class="toc-number">1.9.1.9.</span> <span class="toc-text">准备虚拟机镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.10.</span> <span class="toc-text">创建虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.11.</span> <span class="toc-text">运行虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85tigervnc"><span class="toc-number">1.9.1.12.</span> <span class="toc-text">安装tigervnc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF"><span class="toc-number">1.9.1.13.</span> <span class="toc-text">查看网络信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A1%AB%E5%86%99VNC-Server%E5%9C%B0%E5%9D%80"><span class="toc-number">1.9.1.14.</span> <span class="toc-text">填写VNC-Server地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81"><span class="toc-number">1.9.1.15.</span> <span class="toc-text">输入密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99"><span class="toc-number">1.9.1.16.</span> <span class="toc-text">连接报错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.17.</span> <span class="toc-text">安装虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.18.</span> <span class="toc-text">登录虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.9.1.19.</span> <span class="toc-text">关闭虚拟机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-number">1.9.2.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#docker%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">docker架构图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">容器的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85docker"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">安装docker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">1.9.2.4.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E5%90%AF%E5%8A%A8"><span class="toc-number">1.9.2.5.</span> <span class="toc-text">新建容器并启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">1.9.2.6.</span> <span class="toc-text">创建容器并后台运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%9A%84%E7%BB%88%E6%AD%A2%E4%B8%8E%E5%88%A0%E9%99%A4"><span class="toc-number">1.9.2.7.</span> <span class="toc-text">容器的终止与删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F%E5%B9%B6%E9%AA%8C%E8%AF%81%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-number">1.9.2.8.</span> <span class="toc-text">创建镜像并验证可用性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iSula%E5%AE%B9%E5%99%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.10.</span> <span class="toc-text">iSula容器引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.10.1.</span> <span class="toc-text">安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.10.1.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7"><span class="toc-number">1.10.1.3.</span> <span class="toc-text">升级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD"><span class="toc-number">1.10.1.4.</span> <span class="toc-text">卸载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86"><span class="toc-number">1.10.2.</span> <span class="toc-text">镜像管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F-1"><span class="toc-number">1.10.2.1.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F"><span class="toc-number">1.10.2.2.</span> <span class="toc-text">查看镜像</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86"><span class="toc-number">1.10.3.</span> <span class="toc-text">容器管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.1.</span> <span class="toc-text">创建容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.2.</span> <span class="toc-text">查询所有容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.3.</span> <span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.4.</span> <span class="toc-text">运行容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.5.</span> <span class="toc-text">删除容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-number">1.10.3.6.</span> <span class="toc-text">接入容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.10.3.7.</span> <span class="toc-text">综合实验结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CNI%E7%BD%91%E7%BB%9C"><span class="toc-number">1.10.4.</span> <span class="toc-text">CNI网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CNI%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="toc-number">1.10.4.1.</span> <span class="toc-text">CNI的由来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCNI"><span class="toc-number">1.10.4.2.</span> <span class="toc-text">什么是CNI</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Tune"><span class="toc-number">1.11.</span> <span class="toc-text">A-Tune</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE-1"><span class="toc-number">1.11.1.</span> <span class="toc-text">安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">1.11.1.1.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Atune"><span class="toc-number">1.11.2.</span> <span class="toc-text">启动Atune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%B4%9F%E8%BD%BD%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.11.3.</span> <span class="toc-text">查看负载类型</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="小知识点"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点">小知识点</a><time datetime="2022-07-07T03:40:57.801Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="书签目录说明"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明">书签目录说明</a><time datetime="2022-07-07T03:40:57.785Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2022-07-07T03:40:57.775Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="好物推荐"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐">好物推荐</a><time datetime="2022-07-07T03:40:57.758Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="Windows配置"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置">Windows配置</a><time datetime="2022-07-07T03:40:57.743Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By DFNJKD98</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo_blog/js/utils.js"></script><script src="/hexo_blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

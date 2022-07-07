@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DOS学习记录 | DFNJKD98文档记录</title><meta name="author" content="DFNJKD98"><meta name="copyright" content="DFNJKD98"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DOS学习记录命令&#x2F;符号记录echo 显示此命令后的字符  echo off 在此语句后所有运行的命令都不显示命令行本身  @ 加在每个命令行的最前面，表示运行时不显示这一行的命令行  call 调用另一个批处理文件，执行完另一个批处理文件后还会返回执行当前文件的后续命令  pause 暂停批处理的执行，并在屏幕上显示Press any key to continue…的提示  rem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOS学习记录">
+<meta property="og:url" content="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/DOS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="DFNJKD98文档记录">
+<meta property="og:description" content="DOS学习记录命令&#x2F;符号记录echo 显示此命令后的字符  echo off 在此语句后所有运行的命令都不显示命令行本身  @ 加在每个命令行的最前面，表示运行时不显示这一行的命令行  call 调用另一个批处理文件，执行完另一个批处理文件后还会返回执行当前文件的后续命令  pause 暂停批处理的执行，并在屏幕上显示Press any key to continue…的提示  rem">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-07T03:40:57.376Z">
+<meta property="article:modified_time" content="2022-07-07T03:47:42.659Z">
+<meta property="article:author" content="DFNJKD98">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/hexo_blog/img/favicon.png"><link rel="canonical" href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/DOS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo_blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo_blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DOS学习记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-07 11:47:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo_blog/">DFNJKD98文档记录</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo_blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/hexo_blog/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DOS学习记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-07T03:40:57.376Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-07T03:47:42.659Z" title="更新于 2022-07-07 11:47:42">2022-07-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DOS学习记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="DOS学习记录"><a href="#DOS学习记录" class="headerlink" title="DOS学习记录"></a>DOS学习记录</h2><h3 id="命令-x2F-符号记录"><a href="#命令-x2F-符号记录" class="headerlink" title="命令&#x2F;符号记录"></a>命令&#x2F;符号记录</h3><h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h4><ul>
+<li>显示此命令后的字符</li>
+</ul>
+<h4 id="echo-off"><a href="#echo-off" class="headerlink" title="echo off"></a>echo off</h4><ul>
+<li>在此语句后所有运行的命令都不显示命令行本身</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title="@"></a>@</h4><ul>
+<li>加在每个命令行的最前面，表示运行时不显示这一行的命令行</li>
+</ul>
+<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><ul>
+<li>调用另一个批处理文件，执行完另一个批处理文件后还会返回执行当前文件的后续命令</li>
+</ul>
+<h4 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h4><ul>
+<li>暂停批处理的执行，并在屏幕上显示Press any key to continue…的提示</li>
+</ul>
+<h4 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h4><ul>
+<li>此命令后的字符为注释，不会显示在命令行窗口中</li>
+</ul>
+<h4 id="-1"><a href="#-1" class="headerlink" title="%"></a>%</h4><ul>
+<li><p>参数表示符</p>
+</li>
+<li><p>%[1-9]表示参数</p>
+</li>
+<li><p>参数是指在运行批处理文件时在文件名后加的以空格（或者Tab）分隔的字符串</p>
+</li>
+<li><p>变量可以从%0到%9，%0表示批处理命令本身，其它参数字符串用%1到%9顺序表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// test.bat</span><br><span class="line">@echo off</span><br><span class="line">type %1</span><br><span class="line">type %2</span><br><span class="line">// 执行命令 test hello world</span><br><span class="line">%1 表示hello</span><br><span class="line">%2 表示world</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><ul>
+<li><p>if 是条件语句，用来判断是否符合规定的条件，从而决定执行不同的命令。 有三种格式</p>
+<ul>
+<li><p>if [not] “参数” &#x3D;&#x3D; “字符串” 待执行的命令</p>
+<blockquote>
+<p>参数如果等于(not表示不等，下同)指定的字符串，则条件成立，运行命令，否则运行下一句。</p>
+<p>例：if “%1”&#x3D;&#x3D;”a” format a:</p>
+</blockquote>
+</li>
+<li><p>if [not] exist [路径]文件名 待执行的命令</p>
+<blockquote>
+<p>如果有指定的文件，则条件成立，运行命令，否则运行下一句。</p>
+<p>如: if exist c:\config.sys type c:\config.sys</p>
+<p>表示如果存在c:\config.sys文件，则显示它的内容。</p>
+</blockquote>
+</li>
+<li><p>if errorlevel &lt;数字&gt; 待执行的命令</p>
+<blockquote>
+<p>很多DOS程序在运行结束后会返回一个数字值用来表示程序运行的结果(或者状态)，通过if errorlevel命令可以判断程序的返回值，根据不同的返回值来决定执行不同的命令(返回值必须按照从大到小的顺序排列)。如果返回值等于指定的数字，则条件成立，运行命令，否则运行下一句。</p>
+<p>如if errorlevel 2 goto x2</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h4><ul>
+<li><p>批处理文件运行到这里将跳到goto所指定的标号(标号即label，标号用:后跟标准字符串来定义)处，goto语句一般与if配合使用，根据不同的条件来执行不同的命令组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">goto end</span><br><span class="line"> </span><br><span class="line">:end </span><br><span class="line">echo this is the end</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="choice"><a href="#choice" class="headerlink" title="choice"></a>choice</h4><ul>
+<li>使用此命令可以让用户输入一个字符（用于选择），从而根据用户的选择返回不同的errorlevel，然后于if errorlevel配合，根据用户的选择运行不同的命令。</li>
+<li><strong>注意：choice命令为DOS或者Windows系统提供的外部命令，不同版本的choice命令语法会稍有不同，请用choice &#x2F;?查看用法。</strong></li>
+</ul>
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><ul>
+<li><p>循环命令，只要条件符合，它将多次执行同一命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FOR %%variable IN (set) DO command [command-parameters]</span><br><span class="line"></span><br><span class="line">%%variable   指定一个单一字母可替换的参数。</span><br><span class="line">(set)       指定一个或一组文件。可以使用通配符。</span><br><span class="line">command     指定对每个文件执行的命令。</span><br><span class="line">command-parameters</span><br><span class="line">             为特定命令指定参数或命令行开关。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>for %%c in (*.bat *.txt) do type %%c</p>
+<p>则该命令行会显示当前目录下所有以bat和txt为扩展名的文件的内容。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="IF-EXIST-amp-amp-IF-ERRORLEVEL"><a href="#IF-EXIST-amp-amp-IF-ERRORLEVEL" class="headerlink" title="IF EXIST &amp;&amp; IF ERRORLEVEL"></a>IF EXIST &amp;&amp; IF ERRORLEVEL</h4><ul>
+<li>IF EXIST 是用来测试文件是否存在的，格式为IF EXIST [路径+文件名] 命令</li>
+<li>IF ERRORLEVEL 是用来测试它的上一个DOS命令的返回值的，注意只是上一个命令的返回值，而且返回值必须依照从大到小次序顺序判断。</li>
+</ul>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><ul>
+<li>显示文本文件的内容</li>
+</ul>
+<h4 id="title"><a href="#title" class="headerlink" title="title"></a>title</h4><ul>
+<li>更改cmd窗口标题名字</li>
+</ul>
+<h4 id="color"><a href="#color" class="headerlink" title="color"></a>color</h4><ul>
+<li>设置cmd控制台前景和背景颜色</li>
+</ul>
+<h4 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h4><ul>
+<li>退出cmd.exe程序</li>
+<li>用参数&#x2F;B则是退出当前批处理脚本而不是cmd.exe</li>
+</ul>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/49627.htm">https://www.jb51.net/article/49627.htm</a></li>
+</ul>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><h4 id="开启一个新的cmd窗口来运行另一个bat文件"><a href="#开启一个新的cmd窗口来运行另一个bat文件" class="headerlink" title="开启一个新的cmd窗口来运行另一个bat文件"></a>开启一个新的cmd窗口来运行另一个bat文件</h4><ul>
+<li><p><code>start “” cmd /k call b.bat</code></p>
+<blockquote>
+<p>“”是一段字符串，代表新打开的cmd窗口的名字，可以随便起名。<br>&#x2F;k是表示新打开的cmd窗口在执行完命令后保存打开状态，如果希望执行完就关闭窗口就使用&#x2F;c<br>call b.bat表示call命令，即调用b.bat文件；该命令可以用””括起来，即：”call b.bat”</p>
+</blockquote>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DFNJKD98</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/DOS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">https://dfnjkd98.gitee.io/hexo_blog/2022/07/07/DOS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dfnjkd98.gitee.io/hexo_blog" target="_blank">DFNJKD98文档记录</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo_blog/2022/07/07/dotNet%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">.Net的那些事儿</div></div></a></div><div class="next-post pull-right"><a href="/hexo_blog/2022/07/07/Docker%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/hexo_blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docker学习记录</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/hexo_blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DFNJKD98</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/hexo_blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/hexo_blog/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">初次使用Hexo部署博客,更多内容还在迁移中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">DOS学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4-x2F-%E7%AC%A6%E5%8F%B7%E8%AE%B0%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">命令&#x2F;符号记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#echo"><span class="toc-number">1.1.1.</span> <span class="toc-text">echo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#echo-off"><span class="toc-number">1.1.2.</span> <span class="toc-text">echo off</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.3.</span> <span class="toc-text">@</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#call"><span class="toc-number">1.1.4.</span> <span class="toc-text">call</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pause"><span class="toc-number">1.1.5.</span> <span class="toc-text">pause</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rem"><span class="toc-number">1.1.6.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-1"><span class="toc-number">1.1.7.</span> <span class="toc-text">%</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#if"><span class="toc-number">1.1.8.</span> <span class="toc-text">if</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#goto"><span class="toc-number">1.1.9.</span> <span class="toc-text">goto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#choice"><span class="toc-number">1.1.10.</span> <span class="toc-text">choice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for"><span class="toc-number">1.1.11.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IF-EXIST-amp-amp-IF-ERRORLEVEL"><span class="toc-number">1.1.12.</span> <span class="toc-text">IF EXIST &amp;&amp; IF ERRORLEVEL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type"><span class="toc-number">1.1.13.</span> <span class="toc-text">type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#title"><span class="toc-number">1.1.14.</span> <span class="toc-text">title</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#color"><span class="toc-number">1.1.15.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exit"><span class="toc-number">1.1.16.</span> <span class="toc-text">exit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Links"><span class="toc-number">1.2.</span> <span class="toc-text">Links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAQ"><span class="toc-number">1.3.</span> <span class="toc-text">FAQ</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84cmd%E7%AA%97%E5%8F%A3%E6%9D%A5%E8%BF%90%E8%A1%8C%E5%8F%A6%E4%B8%80%E4%B8%AAbat%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">开启一个新的cmd窗口来运行另一个bat文件</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="小知识点"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/" title="小知识点">小知识点</a><time datetime="2022-07-07T03:40:57.801Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="书签目录说明"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E/" title="书签目录说明">书签目录说明</a><time datetime="2022-07-07T03:40:57.785Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2022-07-07T03:40:57.775Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="好物推荐"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%8D%90/" title="好物推荐">好物推荐</a><time datetime="2022-07-07T03:40:57.758Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/hexo_blog/img/404.jpg'" alt="Windows配置"/></a><div class="content"><a class="title" href="/hexo_blog/2022/07/07/Windows%E9%85%8D%E7%BD%AE/" title="Windows配置">Windows配置</a><time datetime="2022-07-07T03:40:57.743Z" title="发表于 2022-07-07 11:40:57">2022-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By DFNJKD98</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo_blog/js/utils.js"></script><script src="/hexo_blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
